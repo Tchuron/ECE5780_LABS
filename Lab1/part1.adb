@@ -33,6 +33,49 @@ procedure Part1  is
 	 DIO.Put(Currtime + (FinishF1 - StartF1)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
       end if;  
    end F1;
+
+   procedure F2(Currtime: Duration; StartF2: Duration; FinishF2: Duration) is
+   begin
+	 if StartF2 = 0.0 and then FinishF2 = 0.0 then
+	   Put_Line("");
+	   Put_Line("F2 has started executing. The time is now:");
+	   DIO.Put(Currtime);
+	 else
+	   Put_Line("");
+	   Put_Line("F2 has finished executing. The time is now:");
+	   DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+	 end if;  
+   end F2;
+
+   procedure F3(Currtime: Duration; StartF3: Duration; FinishF3: Duration) is
+   begin
+	 if StartF3 = 0.0 and then FinishF3 = 0.0 then
+	   Put_Line("");
+	   Put_Line("F2 has started executing. The time is now:");
+	   DIO.Put(Currtime);
+	 else
+	   Put_Line("");
+	   Put_Line("F2 has finished executing. The time is now:");
+	   DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+	 end if;  
+   end F3;
+
+   task Wait is
+	 entry Init;
+   end;
+   task body Wait is
+   begin 
+	 loop
+	   accept Init;
+		 delay 0.5;
+		 programTime := Ada.Calendar.Clock - vTime;
+		 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F3
+		 F3(Currtime => programTime, StartF3 => 0.0, FinishF3 => 0.0); -- release F3
+		 delay 0.2;
+		 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
+		 F3(Currtime => programTime, StartF3 => F1_Start, FinishF3 => F1_Curr);
+	 end loop;
+   end;
       
 begin
    vTime := Ada.Calendar.Clock;
@@ -49,12 +92,23 @@ begin
 	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1
 	 F1(Currtime => programTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
 
+	 Wait.init;
+
 	 --delay until F1_Sched_End;
 	 delay 0.3;
   
 	 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
 	 --After F1 finishes executing, call the F1 procedure again to obtain the finish time
 	 F1(Currtime => programTime, StartF1 => F1_Start, FinishF1 => F1_Curr);
+
+	  programTime := Ada.Calendar.Clock - vTime;
+	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F2
+	 F2(Currtime => programTime, StartF2 => 0.0, FinishF2 => 0.0); -- release F2
+
+	 delay 0.15;
+
+	 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
+	 F2(Currtime => programTime, StartF2 => F1_Start, FinishF2 => F1_Curr);
 	
    end loop; --Main loop
   
