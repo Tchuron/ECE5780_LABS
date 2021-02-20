@@ -7,7 +7,7 @@ use  Text_Io;
 with Ada.Calendar;
 use  Ada.Calendar;
 
-procedure Part1_Skeleton  is
+procedure Part1  is
    
    vTime, F1_Start, F1_Curr, Before, After: Duration;
    
@@ -65,4 +65,4 @@ begin
 	
    end loop; --Main loop
   
-  end Part1_Skeleton; 
+  end Part1; 
