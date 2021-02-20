@@ -9,7 +9,8 @@ use  Ada.Calendar;
 
 procedure Part1  is
    
-   vTime, F1_Start, F1_Curr, Before, After: Duration;
+   programTime, F1_Start, F1_Curr: Duration;
+   vTime, F1_Sched: Time;
    
    package DIO is new Text_Io.Fixed_Io(Duration); --To print Duration variables you can instantiate the generic 
 						  --package Text_Io.Fixed_Io with a duration type: 
@@ -34,34 +35,26 @@ procedure Part1  is
    end F1;
       
 begin
-   vTime := 0.0;
-   Before := Ada.Calendar.Seconds(Ada.Calendar.Clock);
+   vTime := Ada.Calendar.Clock;
+   F1_Sched := vTime;
+   programTime := 0.0;
    
    --Main loop
    loop
-      After := Ada.Calendar.Seconds(Ada.Calendar.Clock);
-      
-      --Execute F1 every 1 second
-      if After - Before >= 1.000000000 then
+	 F1_Sched := F1_Sched + 1.0000;
+
+	  delay until F1_Sched;
 	 
-	 vTime := vTime + (After - Before); --Needed since time starts at 0
-	 
+	  programTime := Ada.Calendar.Clock - vTime;
 	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1
-	 F1(Currtime => vTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
-	 loop --F1 starts
-     
-	    --Get current time
-	    F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
-      
-	    exit when  F1_Curr - F1_Start >= 0.3000; --Assuming F1 takes 0.3 seconds
-       
-	 end loop; --F1 ends
+	 F1(Currtime => programTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
+
+	 --delay until F1_Sched_End;
+	 delay 0.3;
   
+	 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
 	 --After F1 finishes executing, call the F1 procedure again to obtain the finish time
-	 F1(Currtime => vTime, StartF1 => F1_Start, FinishF1 => F1_Curr);
-	 
-	 Before := After;
-      end if; --Every 1 second
+	 F1(Currtime => programTime, StartF1 => F1_Start, FinishF1 => F1_Curr);
 	
    end loop; --Main loop
   
