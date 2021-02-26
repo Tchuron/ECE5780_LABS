@@ -9,16 +9,22 @@ use  Ada.Calendar;
 
 procedure Part1  is
    
+  -- Local variables
+  -- programTime: duration of seconds the program has been running
+  -- F1_Start: used as a starting time for F1, F2, and F3 arguments
+  -- F1_Curr: used to represent the current time as a duration, for the way F1-F3 report the time
+  -- vTime: the time the program starts
+  -- F1_Sched: The time planned for F1 to start (always at whole seconds from program start time [vTime])
   programTime, F1_Start, F1_Curr: Duration;
   vTime, F1_Sched: Time;
 
-  package DIO is new Text_Io.Fixed_Io(Duration); --To print Duration variables you can instantiate the generic 
-						  --package Text_Io.Fixed_Io with a duration type: 
-						  --"package DIO is new Text_Io.Fixed_Io(Duration);" 
-						  --The DIO package will then export, among other things, 
-						  --the procedure DIO.Put(D:Duration, Fore:Field, Aft:Field) 
-						  --to print variable D of type Duration. See an example
-						  --on how to use this below.
+  package DIO is new Text_Io.Fixed_Io(Duration);  --To print Duration variables you can instantiate the generic 
+                                                  --package Text_Io.Fixed_Io with a duration type: 
+                                                  --"package DIO is new Text_Io.Fixed_Io(Duration);" 
+                                                  --The DIO package will then export, among other things, 
+                                                  --the procedure DIO.Put(D:Duration, Fore:Field, Aft:Field) 
+                                                  --to print variable D of type Duration. See an example
+                                                  --on how to use this below.
    
   --Declare F1, which prints out a message when it starts and stops executing
   procedure F1(Currtime: Duration; StartF1: Duration; FinishF1: Duration) is 
@@ -61,13 +67,12 @@ procedure Part1  is
    end F3;
 
 begin
-  vTime := Ada.Calendar.Clock;
-  F1_Sched := vTime;
-  programTime := 0.0;
+  vTime := Ada.Calendar.Clock; -- vTime gets program start time
+  F1_Sched := vTime; -- F1 will first start at the program start
+  programTime := 0.0; -- The program duration starts at zero
 
   --Main loop
   loop
-    F1_Sched := F1_Sched + 1.0000;
 
     delay until F1_Sched;
 
@@ -75,19 +80,18 @@ begin
     F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1 as a duration
     F1(Currtime => programTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
 
-    --delay until F1_Sched_End;
-    delay 0.3;
+    delay 0.3; -- F1 defined to take 0.3 seconds to complete
 
     F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
     --programTime is not updated because the correct time is calculated within F1
     --After F1 finishes executing, call the F1 procedure again to obtain the finish time
     F1(Currtime => programTime, StartF1 => F1_Start, FinishF1 => F1_Curr);
 
-    F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F2
+    F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F2, which is now
     programTime := Ada.Calendar.Clock - vTime;
     F2(Currtime => programTime, StartF2 => 0.0, FinishF2 => 0.0); -- release F2
 
-    delay 0.15;
+    delay 0.15; -- F2 defined to take 0.15 seconds
 
     F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
     F2(Currtime => programTime, StartF2 => F1_Start, FinishF2 => F1_Curr);
@@ -97,9 +101,11 @@ begin
     programTime := Ada.Calendar.Clock - vTime;
     F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F3
     F3(Currtime => programTime, StartF3 => 0.0, FinishF3 => 0.0); -- release F3
-    delay 0.2;
+    delay 0.2; -- F3 defined to take 0.2 seconds
     F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
     F3(Currtime => programTime, StartF3 => F1_Start, FinishF3 => F1_Curr);
+
+    F1_Sched := F1_Sched + 1.0000; -- increment the start time to prepare for next loop
   end loop; --Main loop
   
   end Part1; 
