@@ -51,11 +51,11 @@ procedure Part1  is
    begin
 	 if StartF3 = 0.0 and then FinishF3 = 0.0 then
 	   Put_Line("");
-	   Put_Line("F2 has started executing. The time is now:");
+	   Put_Line("F3 has started executing. The time is now:");
 	   DIO.Put(Currtime);
 	 else
 	   Put_Line("");
-	   Put_Line("F2 has finished executing. The time is now:");
+	   Put_Line("F3 has finished executing. The time is now:");
 	   DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
 	 end if;  
    end F3;
@@ -89,7 +89,7 @@ begin
 	  delay until F1_Sched;
 	 
 	  programTime := Ada.Calendar.Clock - vTime;
-	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1
+	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1 as a duration
 	 F1(Currtime => programTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
 
 	 Wait.init;
@@ -98,11 +98,12 @@ begin
 	 delay 0.3;
   
 	 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
+   --programTime is not updated because the correct time is calculated within F1
 	 --After F1 finishes executing, call the F1 procedure again to obtain the finish time
 	 F1(Currtime => programTime, StartF1 => F1_Start, FinishF1 => F1_Curr);
 
-	  programTime := Ada.Calendar.Clock - vTime;
 	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F2
+   programTime := Ada.Calendar.Clock - vTime;
 	 F2(Currtime => programTime, StartF2 => 0.0, FinishF2 => 0.0); -- release F2
 
 	 delay 0.15;
