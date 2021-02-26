@@ -60,23 +60,6 @@ procedure Part1  is
 	 end if;  
    end F3;
 
-   task Wait is
-	 entry Init;
-   end;
-   task body Wait is
-   begin 
-	 loop
-	   accept Init;
-		 delay 0.5;
-		 programTime := Ada.Calendar.Clock - vTime;
-		 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F3
-		 F3(Currtime => programTime, StartF3 => 0.0, FinishF3 => 0.0); -- release F3
-		 delay 0.2;
-		 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
-		 F3(Currtime => programTime, StartF3 => F1_Start, FinishF3 => F1_Curr);
-	 end loop;
-   end;
-      
 begin
    vTime := Ada.Calendar.Clock;
    F1_Sched := vTime;
@@ -91,8 +74,6 @@ begin
 	  programTime := Ada.Calendar.Clock - vTime;
 	 F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F1 as a duration
 	 F1(Currtime => programTime, StartF1 => 0.0, FinishF1 => 0.0); --Initialize F1
-
-	 Wait.init;
 
 	 --delay until F1_Sched_End;
 	 delay 0.3;
@@ -111,6 +92,14 @@ begin
 	 F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
 	 F2(Currtime => programTime, StartF2 => F1_Start, FinishF2 => F1_Curr);
 	
+   -- delay until 0.5 after F1 started
+   delay until (F1_Sched + 0.500);
+   programTime := Ada.Calendar.Clock - vTime;
+   F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F3
+   F3(Currtime => programTime, StartF3 => 0.0, FinishF3 => 0.0); -- release F3
+   delay 0.2;
+   F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
+   F3(Currtime => programTime, StartF3 => F1_Start, FinishF3 => F1_Curr);
    end loop; --Main loop
   
   end Part1; 
