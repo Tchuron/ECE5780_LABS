@@ -7,6 +7,9 @@ use  Text_Io;
 with Ada.Calendar;
 use  Ada.Calendar;
 
+with Ada.Numerics.Float_Random, Ada.Text_IO, Ada.Float_Text_IO;
+use Ada.Numerics.Float_Random, Ada.text_IO, Ada.Float_Text_IO;
+
 procedure Part1  is
    
   -- Local variables
@@ -18,6 +21,10 @@ procedure Part1  is
   programTime, F1_Start, F1_Curr: Duration;
   vTime, F1_Sched: Time;
 
+  F3_Met_Deadline : Integer;
+  A_Random_Number : Float;
+  My_Generator : Generator;
+
   package DIO is new Text_Io.Fixed_Io(Duration);  --To print Duration variables you can instantiate the generic 
                                                   --package Text_Io.Fixed_Io with a duration type: 
                                                   --"package DIO is new Text_Io.Fixed_Io(Duration);" 
@@ -26,6 +33,61 @@ procedure Part1  is
                                                   --to print variable D of type Duration. See an example
                                                   --on how to use this below.
    
+  task WatchdogF3 is
+    entry Init;
+    entry Done;
+  end;
+  task body WatchdogF3 is
+  begin
+    loop
+      select
+        accept Init;
+        delay 0.5;
+        Put(" ...Checking on F3... ");
+        DIO.Put(Ada.Calendar.Clock - vTime);
+        select
+          accept Done;
+          Put(" F3 ended on time ");
+          DIO.Put(Ada.Calendar.Clock - vTime);
+        else
+          Put(" Bork Bork! ");
+          DIO.Put(Ada.Calendar.Clock - vTime);
+          F1_Sched := F1_Sched + 1.0000; -- increment the start time to prepare for next loop
+        end select;
+        or
+        accept Done do
+          Put(" womp. too late. ");
+          DIO.Put(Ada.Calendar.Clock - vTime);
+        end Done;
+    end select;
+      -------------------------
+--      select 
+--        accept Init do
+--          Put(" Watchdog has started ");
+--          Put(" ");
+--          F3_Met_Deadline := 0;
+--        end Init;
+--        delay 0.5;
+--      or
+--        accept Done do
+--          F3_Met_Deadline := 1;
+--        end Done;
+--        Put(" ");
+--        Put(" F3 done ");
+--        DIO.Put(Ada.Calendar.Clock - vTime);
+--        Put(" ");
+--      or
+--        terminate;
+--      end select;
+--      if (F3_Met_Deadline = 0) then
+--        Put(" ");
+--        Put("Bork Bork Nom Nom");
+--        DIO.Put(Ada.Calendar.Clock - vTime);
+--        Put(" ");
+--        F1_Sched := F1_Sched + 1.0000; -- increment the start time to prepare for next loop
+--      end if;
+    end loop;
+  end;
   --Declare F1, which prints out a message when it starts and stops executing
   procedure F1(Currtime: Duration; StartF1: Duration; FinishF1: Duration) is 
   begin
@@ -59,12 +121,20 @@ procedure Part1  is
        Put_Line("");
        Put_Line("F3 has started executing. The time is now:");
        DIO.Put(Currtime);
+       A_Random_Number := Random(My_Generator);
+       Put(" delayed 0.4+ ");
+       Put(A_Random_Number, Fore=>0, Exp=>0, Aft=>4);
+       Put(" ");
+       delay 0.4 + Duration(A_Random_Number/2.0); -- F3 defined to take 0.2 seconds, plus a random delay
      else
+       WatchdogF3.Done;
        Put_Line("");
        Put_Line("F3 has finished executing. The time is now:");
        DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
      end if;
    end F3;
+
+  -- todo: remove extra space in above code
 
 begin
   vTime := Ada.Calendar.Clock; -- vTime gets program start time
@@ -100,8 +170,9 @@ begin
     delay until (F1_Sched + 0.500);
     programTime := Ada.Calendar.Clock - vTime;
     F1_Start := Ada.Calendar.Seconds(Ada.Calendar.Clock); --Get start time of F3
+    Put(" WF3 Init ");
+    WatchdogF3.Init;
     F3(Currtime => programTime, StartF3 => 0.0, FinishF3 => 0.0); -- release F3
-    delay 0.2; -- F3 defined to take 0.2 seconds
     F1_Curr := Ada.Calendar.Seconds(Ada.Calendar.Clock);
     F3(Currtime => programTime, StartF3 => F1_Start, FinishF3 => F1_Curr);
 
