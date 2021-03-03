@@ -70,36 +70,34 @@ procedure Part1  is
     end if;
   end F1;
 
-   procedure F2(Currtime: Duration; StartF2: Duration; FinishF2: Duration) is
-   begin
-     if StartF2 = 0.0 and then FinishF2 = 0.0 then
-       Put_Line("");
-       Put_Line("F2 has started executing. The time is now:");
-       DIO.Put(Currtime);
-     else
-       Put_Line("");
-       Put_Line("F2 has finished executing. The time is now:");
-       DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
-     end if;
-   end F2;
+  procedure F2(Currtime: Duration; StartF2: Duration; FinishF2: Duration) is
+  begin
+    if StartF2 = 0.0 and then FinishF2 = 0.0 then
+      Put_Line("");
+      Put_Line("F2 has started executing. The time is now:");
+      DIO.Put(Currtime);
+    else
+      Put_Line("");
+      Put_Line("F2 has finished executing. The time is now:");
+      DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+    end if;
+  end F2;
 
-   procedure F3(Currtime: Duration; StartF3: Duration; FinishF3: Duration) is
-   begin
-     if StartF3 = 0.0 and then FinishF3 = 0.0 then
-       Put_Line("");
-       Put_Line("F3 has started executing. The time is now:");
-       DIO.Put(Currtime);
-       A_Random_Number := Random(My_Generator);
-       delay 0.2 + Duration(A_Random_Number/2.0); -- F3 defined to take 0.2 seconds, plus a random delay
-     else
-       WatchdogF3.Done;
-       Put_Line("");
-       Put_Line("F3 has finished executing. The time is now:");
-       DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
-     end if;
-   end F3;
-
-  -- todo: remove extra space in above code
+  procedure F3(Currtime: Duration; StartF3: Duration; FinishF3: Duration) is
+  begin
+    if StartF3 = 0.0 and then FinishF3 = 0.0 then
+      Put_Line("");
+      Put_Line("F3 has started executing. The time is now:");
+      DIO.Put(Currtime);
+      A_Random_Number := Random(My_Generator);
+      delay 0.2 + Duration(A_Random_Number/2.0); -- F3 defined to take 0.2 seconds, plus a random delay
+    else
+      WatchdogF3.Done;
+      Put_Line("");
+      Put_Line("F3 has finished executing. The time is now:");
+      DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+    end if;
+  end F3;
 
 begin
   vTime := Ada.Calendar.Clock; -- vTime gets program start time
