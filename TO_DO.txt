@@ -1,0 +1,18 @@
+How to implement discrete random number generator.
+
+Test to make sure that we are actually blocking in the buffer. 
+	-test for filling up buffer and test for simultaneous access
+
+When the sum is > 100 synchronized termination.
+https://learn.adacore.com/courses/intro-to-ada/chapters/tasking.html
+(Look at the Synchronization part)
+
+
+Errors/Questions:
+	-Generator not visible
+	-Hidden Declaration: A_Random_Int
+	-Are there issues with a random float and random discrete in the same program?
+	-Should we use a subtype or can we use a float and convert to an integer?
+	-Should F1 F2 and F3 be in the same program as Part 6?
+
+
