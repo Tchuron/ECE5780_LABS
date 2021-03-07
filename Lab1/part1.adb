@@ -9,6 +9,9 @@ use  Ada.Calendar;
 
 with Ada.Numerics.Float_Random, Ada.Text_IO, Ada.Float_Text_IO;
 use Ada.Numerics.Float_Random, Ada.text_IO, Ada.Float_Text_IO;
+
+with Ada.Numerics.Discrete_Random, Ada.Text_IO, Ada.Float_Text_IO;
+use Ada.Numerics.Discrete_Random, Ada.text_IO, Ada.Float_Text_IO;
 ----------------------------------------------------------------------------------------------------------------
 procedure Part1  is 
 ----------------------------------------------------------------------------------------------------------------
@@ -18,12 +21,13 @@ procedure Part1  is
   -- F1_Curr: used to represent the current time as a duration, for the way F1-F3 report the time
   -- vTime: the time the program starts
   -- F1_Sched: The time planned for F1 to start (always at whole seconds from program start time [vTime])
-  -- A_Random_Number: A temporary variable for holding a random number
+  -- A_Random_Float: A temporary variable for holding a random number
   -- My_Generator: For generating a randomized delay in F3
   programTime, F1_Start, F1_Curr: Duration;
   vTime, F1_Sched: Time;
 
-  A_Random_Number : Float;
+  A_Random_Float : Float;
+  A_Random_Int : Integer;
   My_Generator : Generator;
 
   package DIO is new Text_Io.Fixed_Io(Duration);  --To print Duration variables you can instantiate the generic 
@@ -71,13 +75,32 @@ procedure Part1  is
       
       -- Blocks the consumer if it is trying to remove an integer from an empty buffer
    end 
+   task body Int_Buffer is
+
+   end
+     
+     
      
    task Int_Producer is
       
    end
+   task body Int_Producer is
+   begin
+      loop
+         select
+            accept
+              A_Random_Int := Random(My_Generator);
+            end accept
+         end select
+      end loop
+   end
+   end
+     
      
    task Int_Consumer is
       
+   end
+   task body Int_Consumer is
    end
    ----------------------------------------------------------------------------- 
     
@@ -117,8 +140,8 @@ procedure Part1  is
       Put_Line("");
       Put_Line("F3 has started executing. The time is now:");
       DIO.Put(Currtime);
-      A_Random_Number := Random(My_Generator);
-      delay 0.2 + Duration(A_Random_Number/2.0); -- F3 defined to take 0.2 seconds, plus a random delay
+      A_Random_Float := Random(My_Generator);
+      delay 0.2 + Duration(A_Random_Float/2.0); -- F3 defined to take 0.2 seconds, plus a random delay
     else
       WatchdogF3.Done;
       Put_Line("");
