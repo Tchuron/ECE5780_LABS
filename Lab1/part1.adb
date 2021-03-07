@@ -41,7 +41,8 @@ procedure Part1  is
   task WatchdogF3 is
     entry Init;
     entry Done;
-  end;
+   end;
+   
   task body WatchdogF3 is
   begin
     loop
@@ -58,7 +59,7 @@ procedure Part1  is
         accept Done;
       end select;
     end loop;
-   end;
+  end;
    
    -----------------------------------------------------------------------------
    --Create 3 tasks for Communication among Tasks part (Part 6)
