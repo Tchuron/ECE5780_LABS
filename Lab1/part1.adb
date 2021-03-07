@@ -88,7 +88,7 @@ procedure Part1  is
       begin
       loop         
          select
-            accept Push when Size < 10 do
+            when Size < 10 => accept Push do
                -- add pushed integer to the new front
                A(F) := New_Int;
                -- increment front
@@ -98,9 +98,9 @@ procedure Part1  is
                end if;
                -- increment size
                Size := Size + 1; 
-            end accept;
+            end Push;
             or
-            accept Pull when Size > 0 do
+             when Size > 0 => accept Pull do
               -- access back
               Buffer_Pull := A(B);
                -- increment back
@@ -110,10 +110,9 @@ procedure Part1  is
               end if;      
               -- decerement size
               Size := Size -1;   
-            end accept;
+            end Pull;
          end select;
       end loop;
-   end;
    end;
    
      
