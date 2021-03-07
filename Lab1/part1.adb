@@ -33,7 +33,11 @@ procedure Part1  is
                                                   --the procedure DIO.Put(D:Duration, Fore:Field, Aft:Field) 
                                                   --to print variable D of type Duration. See an example
                                                   --on how to use this below.
+                                                  
    
+  -- Watchdog task for monitoring F3's execution time. When F3 misses its deadline, the watchdog task
+  -- should immediately print a warning message, i.e, 0.5s after F3 starts executing, either F3 has finished or the
+  -- watchdog has printed a warning message. 
   task WatchdogF3 is
     entry Init;
     entry Done;
@@ -54,7 +58,28 @@ procedure Part1  is
         accept Done;
       end select;
     end loop;
-  end;
+   end;
+   
+   -----------------------------------------------------------------------------
+   --Create 3 tasks for Communication among Tasks part (Part 6)
+   -----------------------------------------------------------------------------
+   --FIFO Buffer for integers 
+   task Int_Buffer is
+      -- Buffer size is 10. 
+      -- Blocks the producer if it is trying to add an integer to a full buffer
+      
+      -- Blocks the consumer if it is trying to remove an integer from an empty buffer
+   end 
+     
+   task Int_Producer is
+      
+   end
+     
+   task Int_Consumer is
+      
+   end
+   ----------------------------------------------------------------------------- 
+    
 
   --Declare F1, which prints out a message when it starts and stops executing
   procedure F1(Currtime: Duration; StartF1: Duration; FinishF1: Duration) is 
@@ -69,7 +94,8 @@ procedure Part1  is
       DIO.Put(Currtime + (FinishF1 - StartF1)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
     end if;
   end F1;
-
+ 
+   --Declare F2, which prints out a message when it starts and stops executing
   procedure F2(Currtime: Duration; StartF2: Duration; FinishF2: Duration) is
   begin
     if StartF2 = 0.0 and then FinishF2 = 0.0 then
@@ -82,7 +108,8 @@ procedure Part1  is
       DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF2 and StartF2 are not virtual times
     end if;
   end F2;
-
+  
+   --Declare F3, which prints out a message when it starts and stops executing
   procedure F3(Currtime: Duration; StartF3: Duration; FinishF3: Duration) is
   begin
     if StartF3 = 0.0 and then FinishF3 = 0.0 then
@@ -102,9 +129,12 @@ procedure Part1  is
 begin
   vTime := Ada.Calendar.Clock; -- vTime gets program start time
   F1_Sched := vTime; -- F1 will first start at the program start
-  programTime := 0.0; -- The program duration starts at zero
-
+   programTime := 0.0; -- The program duration starts at zero
+   
+   
+  -----------------------------------------------------------------------------------------------------------
   --Main loop
+  -----------------------------------------------------------------------------------------------------------
   loop
 
     delay until F1_Sched;
