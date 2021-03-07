@@ -1,4 +1,4 @@
-with Ada.Text_IO;
+with Ada.Text_IO;  --Context clauses
 use  Ada.Text_IO;
 
 with Text_Io;
@@ -9,9 +9,9 @@ use  Ada.Calendar;
 
 with Ada.Numerics.Float_Random, Ada.Text_IO, Ada.Float_Text_IO;
 use Ada.Numerics.Float_Random, Ada.text_IO, Ada.Float_Text_IO;
-
-procedure Part1  is
-   
+----------------------------------------------------------------------------------------------------------------
+procedure Part1  is 
+----------------------------------------------------------------------------------------------------------------
   -- Local variables
   -- programTime: duration of seconds the program has been running
   -- F1_Start: used as a starting time for F1, F2, and F3 arguments
@@ -79,7 +79,7 @@ procedure Part1  is
     else
       Put_Line("");
       Put_Line("F2 has finished executing. The time is now:");
-      DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+      DIO.Put(Currtime + (FinishF2 - StartF2)); --Needed since time starts at 0 and FinishF2 and StartF2 are not virtual times
     end if;
   end F2;
 
@@ -95,7 +95,7 @@ procedure Part1  is
       WatchdogF3.Done;
       Put_Line("");
       Put_Line("F3 has finished executing. The time is now:");
-      DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF1 and StartF1 are not virtual times
+      DIO.Put(Currtime + (FinishF3 - StartF3)); --Needed since time starts at 0 and FinishF3 and StartF3 are not virtual times
     end if;
   end F3;
 
