@@ -27,8 +27,10 @@ procedure Part1  is
   vTime, F1_Sched: Time;
 
   A_Random_Float : Float;
-  A_Random_Int : Integer;
   My_Generator : Generator;
+  Buffer_Pull : Integer;
+   
+
 
   package DIO is new Text_Io.Fixed_Io(Duration);  --To print Duration variables you can instantiate the generic 
                                                   --package Text_Io.Fixed_Io with a duration type: 
@@ -51,7 +53,7 @@ procedure Part1  is
   begin
     loop
       select
-        accept Init;
+        accept Init; 
         delay 0.5;
         select
           accept Done;
@@ -69,39 +71,86 @@ procedure Part1  is
    --Create 3 tasks for Communication among Tasks part (Part 6)
    -----------------------------------------------------------------------------
    --FIFO Buffer for integers 
-   task Int_Buffer is
-      -- Buffer size is 10. 
-      -- Blocks the producer if it is trying to add an integer to a full buffer
-      
-      -- Blocks the consumer if it is trying to remove an integer from an empty buffer
-   end 
-   task body Int_Buffer is
 
-   end
-     
-     
+   task Int_Buffer is
+      -- Buffer size is 11.
+      entry Push (New_Int : in Integer); 
+      entry Pull;
+   end; 
+   
+   
+   task body Int_Buffer is  
+      --Variables for buffer tasks
+      A: array(0..10) of Integer;   -- Array subscripts 0 to 11.
+      F: Integer :=0;  -- Front index  Front is the next be filled
+      B: Integer :=0;  -- back index back is next to be emptied
+      Size: Integer :=0;
+      begin
+      loop         
+         select
+            accept Push when Size < 10 do
+               -- add pushed integer to the new front
+               A(F) := New_Int;
+               -- increment front
+               F := F + 1;
+               if F > 10 then
+                  F := F -10;
+               end if;
+               -- increment size
+               Size := Size + 1; 
+            end accept;
+            or
+            accept Pull when Size > 0 do
+              -- access back
+              Buffer_Pull := A(B);
+               -- increment back
+              B := B+1;
+              if B > 10 then
+                 B := B -10;
+              end if;      
+              -- decerement size
+              Size := Size -1;   
+            end accept;
+         end select;
+      end loop;
+   end;
+   end;
+   
      
    task Int_Producer is
-      
+      A_Random_Int : Integer;
    end
    task body Int_Producer is
+      subtype Random_Int is Integer range 0 .. 25;
+      package A_Random_Int is new Ada.Numerics.Discrete_Random (Random_Int);
+      use A_Random_Int;
+      G : Generator;
+      R : Random_Int;
    begin
+      Reset (G);
       loop
-         select
-            accept
-              A_Random_Int := Random(My_Generator);
-            end accept
-         end select
-      end loop
-   end
-   end
+        delay Random(My_Generator);
+        R := Random(G);
+         Buffer.Push(R); --send new random integer to buffer
+         Text Io.Put(Integer'Image(R)); --print value of new integer sent to buffer
+      end loop;
+   end;
      
      
    task Int_Consumer is
-      
-   end
+      Total : integer; 
+   end;
    task body Int_Consumer is
-   end
+   begin
+      loop
+         delay Random(My_Generator);   -- At irregular intervals
+         Buffer.Pull;                  -- Pull integer from bottom of buffer
+         Text Io.Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
+         Total := Total + Buffer_Pull; -- Add new integer to total
+         --If total > 99 terminate program
+                              
+      end loop; 
+   end;
    ----------------------------------------------------------------------------- 
     
 
