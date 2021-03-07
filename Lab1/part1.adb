@@ -10,8 +10,8 @@ use  Ada.Calendar;
 with Ada.Numerics.Float_Random, Ada.Text_IO, Ada.Float_Text_IO;
 use Ada.Numerics.Float_Random, Ada.text_IO, Ada.Float_Text_IO;
 
-with Ada.Numerics.Discrete_Random, Ada.Text_IO, Ada.Float_Text_IO;
-use Ada.Numerics.Discrete_Random, Ada.text_IO, Ada.Float_Text_IO;
+with Ada.Numerics.Discrete_Random;
+
 ----------------------------------------------------------------------------------------------------------------
 procedure Part1  is 
 ----------------------------------------------------------------------------------------------------------------
@@ -28,7 +28,8 @@ procedure Part1  is
 
   A_Random_Float : Float;
   My_Generator : Generator;
-  Buffer_Pull : Integer;
+  subtype Random_Int is Integer range 0 .. 25;
+  Buffer_Pull : Random_Int;
    
 
 
@@ -74,21 +75,21 @@ procedure Part1  is
 
    task Int_Buffer is
       -- Buffer size is 11.
-      entry Push (New_Int : in Integer); 
+      entry Push (New_Int : in Random_Int); 
       entry Pull;
    end; 
    
    
    task body Int_Buffer is  
       --Variables for buffer tasks
-      A: array(0..10) of Integer;   -- Array subscripts 0 to 11.
+      A: array(0..10) of Random_Int; -- Array subscripts 0 to 11.
       F: Integer :=0;  -- Front index  Front is the next be filled
       B: Integer :=0;  -- back index back is next to be emptied
       Size: Integer :=0;
       begin
       loop         
          select
-            when Size < 10 => accept Push do
+            when Size < 10 => accept Push (New_Int : in Random_Int) do
                -- add pushed integer to the new front
                A(F) := New_Int;
                -- increment front
@@ -117,34 +118,51 @@ procedure Part1  is
    
      
    task Int_Producer is
-      A_Random_Int : Integer;
-   end
+     
+   end Int_Producer;
+    
+
    task body Int_Producer is
-      subtype Random_Int is Integer range 0 .. 25;
+   
       package A_Random_Int is new Ada.Numerics.Discrete_Random (Random_Int);
       use A_Random_Int;
-      G : Generator;
+      --G : Generator;
       R : Random_Int;
+     
    begin
-      Reset (G);
+      --Reset (G);
+      R := 0;
       loop
-        delay Random(My_Generator);
-        R := Random(G);
-         Buffer.Push(R); --send new random integer to buffer
-         Text Io.Put(Integer'Image(R)); --print value of new integer sent to buffer
+         delay Duration(Random(My_Generator));
+         
+         R :=  R + 1;
+         if R = 25 then
+            R := 0;
+         end if;
+         --R := Random(G);
+         Int_Buffer.Push(R); --send new random integer to buffer
+         Put("Producer: ");
+         Put(Integer'Image(R)); --print value of new integer sent to buffer
+
+         Put_Line("");
       end loop;
    end;
      
      
    task Int_Consumer is
-      Total : integer; 
    end;
+   
    task body Int_Consumer is
+      Total : integer; 
    begin
+      Total := 0;
       loop
-         delay Random(My_Generator);   -- At irregular intervals
-         Buffer.Pull;                  -- Pull integer from bottom of buffer
-         Text Io.Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
+         delay Duration(Random(My_Generator));   -- At irregular intervals
+
+         Put("Consumer: ");
+         Int_Buffer.Pull;     -- Pull integer from bottom of buffer
+         Put_Line("");
+         Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
          Total := Total + Buffer_Pull; -- Add new integer to total
          --If total > 99 terminate program
                               
@@ -208,7 +226,7 @@ begin
   --Main loop
   -----------------------------------------------------------------------------------------------------------
   loop
-
+    delay 1000.00;
     delay until F1_Sched;
 
     programTime := Ada.Calendar.Clock - vTime;
