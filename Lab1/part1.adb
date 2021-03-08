@@ -141,10 +141,10 @@ procedure Part1  is
          end if;
          --R := Random(G);
          Int_Buffer.Push(R); --send new random integer to buffer
+         Put_Line("");
          Put("Producer: ");
          Put(Integer'Image(R)); --print value of new integer sent to buffer
 
-         Put_Line("");
       end loop;
    end;
      
@@ -159,9 +159,9 @@ procedure Part1  is
       loop
          delay Duration(Random(My_Generator));   -- At irregular intervals
 
-         Put("Consumer: ");
          Int_Buffer.Pull;     -- Pull integer from bottom of buffer
          Put_Line("");
+         Put("Consumer: ");
          Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
          Total := Total + Buffer_Pull; -- Add new integer to total
          --If total > 99 terminate program
