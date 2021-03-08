@@ -29,7 +29,6 @@ procedure Part1  is
   A_Random_Float : Float;
   My_Generator : Generator;
   subtype Random_Int is Integer range 0 .. 25;
-  Buffer_Pull : Random_Int;
    
 
 
@@ -76,7 +75,7 @@ procedure Part1  is
    task Int_Buffer is
       -- Buffer size is 11.
       entry Push (New_Int : in Random_Int); 
-      entry Pull;
+      entry Pull (Old_Int : out Random_Int);
    end; 
    
    
@@ -101,9 +100,9 @@ procedure Part1  is
                Size := Size + 1; 
             end Push;
             or
-             when Size > 0 => accept Pull do
+             when Size > 0 => accept Pull (Old_Int : out Random_Int) do
               -- access back
-              Buffer_Pull := A(B);
+              Old_Int := A(B);
                -- increment back
               B := B+1;
               if B > 10 then
@@ -154,12 +153,13 @@ procedure Part1  is
    
    task body Int_Consumer is
       Total : integer; 
+      Buffer_Pull : Random_Int;
    begin
       Total := 0;
       loop
          delay Duration(Random(My_Generator));   -- At irregular intervals
 
-         Int_Buffer.Pull;     -- Pull integer from bottom of buffer
+         Int_Buffer.Pull(Buffer_Pull);     -- Pull integer from bottom of buffer
          Put_Line("");
          Put("Consumer: ");
          Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
