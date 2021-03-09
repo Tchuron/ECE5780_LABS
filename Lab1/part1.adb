@@ -122,17 +122,14 @@ procedure Part1  is
       R : Random_Int;
      
    begin
-      --Reset (G);
       R := 0;
       loop
          delay Duration(Random(My_Generator));
          
          R :=  Get_Random_Int;
-         --R := Random(G);
          Int_Buffer.Push(R); --send new random integer to buffer
-         Put_Line("");
          Put("Producer: ");
-         Put(Integer'Image(R)); --print value of new integer sent to buffer
+         Put_Line(Integer'Image(R)); --print value of new integer sent to buffer
          select
            accept done do
              Exiting := true;
@@ -157,9 +154,8 @@ procedure Part1  is
          delay Duration(Random(My_Generator));   -- At irregular intervals
 
          Int_Buffer.Pull(Buffer_Pull);     -- Pull integer from bottom of buffer
-         Put_Line("");
          Put("Consumer: ");
-         Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
+         Put_Line(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
          Total := Total + Buffer_Pull; -- Add new integer to total
          --If total > 99 terminate program
 
@@ -171,10 +167,6 @@ procedure Part1  is
 
 begin
    
-   
-  -----------------------------------------------------------------------------------------------------------
-  --Main loop
-  -----------------------------------------------------------------------------------------------------------
-  null;
+  null; -- wait until tasks are done, then exit
   
   end Part1; 
