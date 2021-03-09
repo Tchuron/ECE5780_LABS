@@ -51,15 +51,17 @@ procedure Part1  is
       -- Buffer size is 11.
       entry Push (New_Int : in Random_Int); 
       entry Pull (Old_Int : out Random_Int);
+      entry Done;
    end; 
    
    
    task body Int_Buffer is  
       --Variables for buffer tasks
-      A: array(0..10) of Random_Int; -- Array subscripts 0 to 11.
+      A: array(0..9) of Random_Int; -- Array subscripts 0 to 9.
       F: Integer :=0;  -- Front index  Front is the next be filled
       B: Integer :=0;  -- back index back is next to be emptied
       Size: Integer :=0;
+      Exiting: Boolean := False;
       begin
       loop         
          select
@@ -68,7 +70,7 @@ procedure Part1  is
                A(F) := New_Int;
                -- increment front
                F := F + 1;
-               if F > 10 then
+               if F > 9 then
                   F := F -10;
                end if;
                -- increment size
@@ -80,24 +82,31 @@ procedure Part1  is
               Old_Int := A(B);
                -- increment back
               B := B+1;
-              if B > 10 then
+              if B > 9 then
                  B := B -10;
               end if;      
               -- decerement size
               Size := Size -1;   
             end Pull;
+            or
+            accept done do
+              Exiting := true;
+            end done;
          end select;
+         exit when Exiting = true;
       end loop;
    end;
    
      
    task Int_Producer is
      
+      entry Done;
    end Int_Producer;
     
 
    task body Int_Producer is
    
+      Exiting: Boolean := False;
       package A_Random_Int is new Ada.Numerics.Discrete_Random (Random_Int);
       use A_Random_Int;
       --G : Generator;
@@ -118,7 +127,14 @@ procedure Part1  is
          Put_Line("");
          Put("Producer: ");
          Put(Integer'Image(R)); --print value of new integer sent to buffer
-
+         select
+           accept done do
+             Exiting := true;
+           end done;
+           or
+           delay 0.0;
+         end select;
+         exit when Exiting = true;
       end loop;
    end;
      
@@ -140,8 +156,11 @@ procedure Part1  is
          Put(Integer'Image(Buffer_Pull)); --print value of new integer taken from Buffer
          Total := Total + Buffer_Pull; -- Add new integer to total
          --If total > 99 terminate program
-                              
+
+         exit when Total >= 100;
       end loop; 
+      Int_Producer.done;
+      Int_Buffer.done;
    end;
 
 begin
@@ -150,9 +169,6 @@ begin
   -----------------------------------------------------------------------------------------------------------
   --Main loop
   -----------------------------------------------------------------------------------------------------------
-  loop
-    delay 1000.00;
-
-  end loop; --Main loop
+  null;
   
   end Part1; 
