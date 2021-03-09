@@ -47,6 +47,18 @@ procedure Part1  is
    -----------------------------------------------------------------------------
    --FIFO Buffer for integers 
 
+  function Get_Random_Int return Random_Int is
+    package A_Random_Int is new Ada.Numerics.Discrete_Random(Random_Int);
+    use A_Random_Int;
+    G : A_Random_Int.Generator;
+    Result : Random_Int := 0;
+  begin
+    Reset(G);
+    Result := Random(G);
+    return Result;
+  end Get_Random_Int;
+  
+
    task Int_Buffer is
       -- Buffer size is 11.
       entry Push (New_Int : in Random_Int); 
@@ -107,9 +119,6 @@ procedure Part1  is
    task body Int_Producer is
    
       Exiting: Boolean := False;
-      package A_Random_Int is new Ada.Numerics.Discrete_Random (Random_Int);
-      use A_Random_Int;
-      --G : Generator;
       R : Random_Int;
      
    begin
@@ -118,10 +127,7 @@ procedure Part1  is
       loop
          delay Duration(Random(My_Generator));
          
-         R :=  R + 1;
-         if R = 25 then
-            R := 0;
-         end if;
+         R :=  Get_Random_Int;
          --R := Random(G);
          Int_Buffer.Push(R); --send new random integer to buffer
          Put_Line("");
