@@ -1,9 +1,29 @@
 class Task
 {
   public:
-    Task(int id, int execTime, int period);
+    // deadline is the release time for aperiodic and period for periodic
+    Task(char id, int execTime, int deadline, bool periodic)
+    {
+      mID = id;
+      mExecTime = execTime;
+      mExecAlready = 0;
+      mPeriodic = periodic;
+      if (periodic)
+      {
+        mRelease = 0;
+        mDeadline = deadline;
+      }
+      else
+      { //aperiodic
+        mRelease = deadline;
+        mDeadline = deadline + 500; // implicit 500ms deadline
+      }
+    }
   private:
-    int mID;
+    char mID;
     int mExecTime;
-    int mPeriod;
+    int mExecAlready;
+    int mReleaseTime;
+    int mDeadline;
+    bool mPeriodic;
 };
