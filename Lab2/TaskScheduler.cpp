@@ -8,22 +8,14 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	// Open Files
 	std::ifstream fileInStream (inFile);;
 	std::ofstream  fileOutStream (outFile);
-
-	if (!fileInStream.is_open()) // Print an error message if the input file did not open correctly
-	{
-		std::cout << "input file did not open" << std::endl;
-	}
 	
-	int numTasks = 0;
-	int simTimeMs = 0;
+	int numTasks;
+	int simTimeMs;
 	int execTime;
 	int period;
-	int execTime = 0;
-	int period = 0;
 	int id = 0;
-	std::string line;
-	std::getline(fileInStream, line);
-	std::string idName = "";
+	std::string idName;
+	std::string input;
 	std::string tempString;
 	
 	// Parse the first two variables from the input file
@@ -32,26 +24,26 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	
 	// Print the variables just parsed
 	std::cout << "NumTasks: " << numTasks << " simTimeMs: " << simTimeMs << std::endl;
-
-	while (!fileInStream.eof() && id < 20)
-	{
-
-		//int parsedFields = sscanf(line.c_str(), "%c, %d, %d", &tempString, &execTime, &period);
-
-		//Parse data from the input file
-		fileInStream >> numTasks;
-		fileInStream >> execTime;
+	if (fileInStream.is_open()){
+		while ((fileInStream.eof() == false) && id < 15) // Go through each line of the file
+		{
+			fileInStream >> idName;
 			
-		fileInStream >> idName; // = std::string(tempString);
-		fileInStream >> execTime;
-		fileInStream >> period;
-			
-		std::cout << "Created new task. ID: " << tempString << " ExecTime: " << execTime << " Period: " << period << std::endl;
-		//TaskEDF newTask = new TaskEDF(id, execTime, period);
-		//mTasks.push(newTask);
-		//std::cout << "parsed only " << parsedFields << " fields." << std::endl;
-		id++; // increment id
+			fileInStream >> execTime >> tempString >> period; 
+			std::cout << "Created new task. ID: " << idName << " ExecTime: " << execTime << " Period: " << period << std::endl;
+			//TaskEDF newTask = new TaskEDF(id, execTime, period);
+			//mTasks.push(newTask);
+			//std::cout << "parsed only " << parsedFields << " fields." << std::endl;
+			id++; // increment id
+			//std::cout << id << std::endl;
+		}
 	}
+	else{ // Print an error message if the input file did not open correctly
+		std::cout << "input file did not open" << std::endl;
+	}
+	
+	fileInStream.close();
+	fileOutStream.close();
 }
 
 void TaskScheduler::runSchedule()
