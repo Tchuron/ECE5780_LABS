@@ -28,7 +28,7 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	// Print the variables just parsed
 	std::cout << "NumTasks: " << numTasks << " simTimeMs: " << simTimeMs << std::endl;
 	if (fileInStream.is_open()){
-		while ((fileInStream.eof() == false) && id < 15) // Go through each line of the file
+		while (fileInStream.eof() == false) // Go through each line of the file
 		{
 			fileInStream >> idName; 				// Parse the ID of each task from the input file
 			if (isdigit(idName[0])){ 				// Check to see if the id name is a number
