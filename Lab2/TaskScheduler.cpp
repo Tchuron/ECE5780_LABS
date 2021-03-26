@@ -1,48 +1,56 @@
 #include "TaskScheduler.hpp"
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <charconv> 
+#include <ctype.h>
 
 TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 {
-  std::ifstream fileInStream(inFile.c_str(), std::ifstream::in);
-  mScheduleOutput.open(outFile.c_str(), std::ofstream::out);
-  if (!fileInStream.is_open())
-  {
-    std::cout << "input file did not open" << std::endl;
-  }
-  int numTasks = 0;
-  int simTimeMs = 0;
-  fileInStream >> numTasks;
-  fileInStream >> simTimeMs;
-  std::cout << "NumTasks: " << numTasks << " simTimeMs: " << simTimeMs << std::endl;
-  int id = 0;
-  while (!fileInStream.eof() && id < 20)
-  {
-    std::string line;
-    std::getline(fileInStream, line);
-    int execTime = 0;
-    int period = 0;
-    std::string idName = "";
-    char tempString;
-    int parsedFields = sscanf(line.c_str(), "%c, %d, %d", &tempString, &execTime, &period);
-    if (parsedFields == 3)
-    {
-    //idName = std::string(tempString);
-    //fileInStream >> idName;
-    //fileInStream >> execTime;
-    //fileInStream >> period;
-    std::cout << "Created new task. ID: " << tempString << " ExecTime: " << execTime << " Period: " << period << std::endl;
-    //TaskEDF newTask = new TaskEDF(id, execTime, period);
-    //mTasks.push(newTask);
-    }
-    else
-    {
-      std::cout << "did not parse the fields this time. ID: " << id << std::endl;
-      std::cout << "parsed only " << parsedFields << " fields." << std::endl;
-    }
-    id++;
-  }
+	// Open Files
+	std::ifstream fileInStream (inFile);;
+	std::ofstream  fileOutStream (outFile);
+	
+	int numTasks;
+	int numAperiodic;
+	int simTimeMs;
+	int execTime;
+	int period;
+	int id = 0;
+	std::string idName;
+	std::string input;
+	std::string tempString;
+	
+	// Parse the first two variables from the input file
+	fileInStream >> numTasks;
+	fileInStream >> simTimeMs;
+	
+	// Print the variables just parsed
+	std::cout << "NumTasks: " << numTasks << " simTimeMs: " << simTimeMs << std::endl;
+	if (fileInStream.is_open()){
+		while (fileInStream.eof() == false) // Go through each line of the file
+		{
+			fileInStream >> idName; 				// Parse the ID of each task from the input file
+			if (isdigit(idName[0])){ 				// Check to see if the id name is a number
+				numAperiodic = std::stoi(idName); 	// If it is parse into the number of aperiodic tasks
+				fileInStream >> idName; 			// Get the next value from the file for the id name
+				std::cout << "number of aperiodic tasks: " << numAperiodic << std::endl;
+			}
+			fileInStream >> execTime >> tempString >> period; 
+			std::cout << "Created new task. ID: " << idName << " ExecTime: " << execTime << " Period: " << period << std::endl;
+			//TaskEDF newTask = new TaskEDF(id, execTime, period);
+			//mTasks.push(newTask);
+		}
+	}
+	else{ // Print an error message if the input file did not open correctly
+		std::cout << "input file did not open" << std::endl;
+	}
+	
+	fileInStream.close();
+	fileOutStream.close();
 }
 
 void TaskScheduler::runSchedule()
 {
-  std::cout << "Nothing here" << std::endl;
+	std::cout << "Nothing here" << std::endl;
 }
