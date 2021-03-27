@@ -1,5 +1,7 @@
 #include "Task.hpp"
 
+//std::shared_ptr<Task> Task::mPreviouslyExecuted;
+
 Task::Task(char id, int execTime, int deadline, bool periodic)
 {
   mID = id;
@@ -16,6 +18,15 @@ Task::Task(char id, int execTime, int deadline, bool periodic)
     mReleaseTime = deadline;
     mDeadline = deadline + 500; // implicit 500ms deadline
   }
+}
+
+Task::Task(Task* other)
+{
+  mID = other->getID();
+  mExecTime = other->getExecTime();
+  mDeadline = other->getDeadline();
+  mExecAlready = other->getExecAlready();
+  mPeriodic = other->isPeriodic();
 }
 
 bool Task::operator==(const Task& other)
@@ -38,6 +49,16 @@ int Task::getDeadline()
   return mDeadline;
 }
 
+int Task::getExecAlready()
+{
+  return mExecAlready;
+}
+
+int Task::getExecTime()
+{
+  return mExecTime;
+}
+
 // intended for periodic tasks. aperiodic tasks would be in a different
 // prioritized structure
 int Task::getRmaPriority(int currentTime)
@@ -58,7 +79,7 @@ char Task::getID()
 
 bool Task::isReady(int currentTime)
 {
-  return (mReleaseTime <= currentTime && mExecTime < mExecAlready);
+  return (mReleaseTime <= currentTime && mExecTime > mExecAlready);
 }
 
 void Task::periodicPushForward()
@@ -78,23 +99,20 @@ bool Task::isFinished()
 
 void Task::execute(int currentTime)
 {
+  std::cout << "[" << currentTime << "ms] : " << mID << std::endl;
   mExecAlready++;
-  if (mPreviouslyExecuted &&
-      *mPreviouslyExecuted != *this &&
+  if (mPreviouslyExecuted != nullptr &&
+      mPreviouslyExecuted->getID() != mID &&
       !mPreviouslyExecuted->isFinished())
   {
-    std::cout << "Task " << mID << " has pre-empted " << mPreviouslyExecuted->getID() << std::endl;
+    std::cout << "Task " << mID << " pre-empted " << mPreviouslyExecuted->getID() << std::endl;
   }
   if (mExecAlready >= mExecTime) // check if finishing
   {
-    std::cout << "Task " << mID << " is done." << std::endl;
-  }
-  else
-  {
-    if (currentTime == mDeadline) // we are currently passing deadline
+    if (mPeriodic)
     {
-      std::cout << "Task " << mID << " missed deadline." << std::endl;
+      periodicPushForward();
     }
   }
-  mPreviouslyExecuted.reset(this); // update previously executed task
+  mPreviouslyExecuted = this; // update the static previous task holder
 }

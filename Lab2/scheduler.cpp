@@ -23,6 +23,7 @@ int main(int argc, char** argv)
 	std::string inPath = argv[1];
 	std::string outPath = argv[2];
 	TaskScheduler* ts = new TaskScheduler(inPath, outPath); //pass file names to Task Scheduler
+  ts->runScheduleRMA();
 	
 	return 1;
 } // End of main function

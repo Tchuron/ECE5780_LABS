@@ -6,9 +6,12 @@ class Task
   public:
     // deadline is the release time for aperiodic and period for periodic
     Task(char id, int execTime, int deadline, bool periodic);
+    Task(Task* other);
     bool operator==(const Task& other);
     bool operator!=(const Task& other);
     bool isPeriodic();
+    int getExecTime();
+    int getExecAlready();
     int getDeadline();// for EDF scheduling
     int getRmaPriority(int currentTime); // for RMA scheduling
     char getID();
@@ -23,5 +26,5 @@ class Task
     int mReleaseTime;
     int mDeadline;
     bool mPeriodic;
-    static std::shared_ptr<Task> mPreviouslyExecuted;
+    Task* mPreviouslyExecuted = nullptr;
 };
