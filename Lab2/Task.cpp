@@ -4,7 +4,6 @@
 
 Task::Task(char id, int execTime, int deadline, bool periodic)
 {
-  std::cout << "OG contstructor: " << id << std::endl;
   mID = id;
   mExecTime = execTime;
   mExecAlready = 0;
@@ -23,7 +22,6 @@ Task::Task(char id, int execTime, int deadline, bool periodic)
 
 Task::Task(Task* other)
 {
-  std::cout << "copy contstructor: " << other->getID() << std::endl;
   mID = other->getID();
   mExecTime = other->getExecTime();
   mDeadline = other->getDeadline();
@@ -86,7 +84,6 @@ bool Task::isReady(int currentTime)
 
 void Task::periodicPushForward()
 {
-  std::cout << "Pushing back periodic task " << mID << std::endl;
   if (!mPeriodic)
     std::cout << "Problem: aperiodic task where it should not be." << std::endl;
   mExecAlready = 0;
@@ -97,35 +94,25 @@ void Task::periodicPushForward()
 
 bool Task::isFinished()
 {
-  if (mExecAlready >= mExecTime)
-  {
-    std::cout << "task " << mID << " is finished" << std::endl;
-  }
   return mExecAlready >= mExecTime;
 }
 
 void Task::execute(int currentTime)
 {
-  std::cout << "Task " << mID << " executed time :" << currentTime << std::endl;
+  std::cout << "[" << currentTime << "ms] : " << mID << std::endl;
   mExecAlready++;
   if (mPreviouslyExecuted != nullptr &&
       mPreviouslyExecuted->getID() != mID &&
       !mPreviouslyExecuted->isFinished())
   {
-    std::cout << "Task " << mID << " has pre-empted " << mPreviouslyExecuted->getID() << std::endl;
+    std::cout << "Task " << mID << " pre-empted " << mPreviouslyExecuted->getID() << std::endl;
   }
   if (mExecAlready >= mExecTime) // check if finishing
   {
-    std::cout << "Task " << mID << " is done." << std::endl;
     if (mPeriodic)
     {
       periodicPushForward();
     }
   }
-  //std::cout << "this: " << this << std::endl;
-  //std::cout << "resetting previous smart pointer" << std::endl;
-  //std::cout << "use count 1: " << mPreviouslyExecuted.use_count() << std::endl;
-  mPreviouslyExecuted = this;
-  //mPreviouslyExecuted.reset(this); // update previously executed task
-  //std::cout << "use count 2: " << mPreviouslyExecuted.use_count() << std::endl;
+  mPreviouslyExecuted = this; // update the static previous task holder
 }

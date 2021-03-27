@@ -57,8 +57,6 @@ void TaskScheduler::runScheduleRMA()
   // copy the tasks into the two queues
   for (int i = 0; i < mLoadedTasks.size(); i++)
   {
-    //Task temp = *mLoadedTasks[i];
-    //rmaTasks.push_back(std::make_shared<Task>(mLoadedTasks[i].get()));
     std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
     rmaTasks.push_back(copyTask);
   }
@@ -77,9 +75,7 @@ void TaskScheduler::runScheduleRMA()
       {
         if(rmaTasks[i]->isReady(mTime) && rmaTasks[i]->getRmaPriority(mTime) < bestPeriodicTaskPriority)
         {
-          //std::cout << "use count before " << rmaTasks[i].use_count() << std::endl;
           bestPeriodicTask = rmaTasks[i];
-          //std::cout << "use count after " << rmaTasks[i].use_count() << std::endl;
           bestPeriodicTaskPriority = rmaTasks[i]->getRmaPriority(mTime);
         }
       }
@@ -94,18 +90,22 @@ void TaskScheduler::runScheduleRMA()
       // check for any late tasks
       if (rmaTasks[i]->getDeadline() == mTime)
       {
-        std::cout << "Task " << rmaTasks[i]->getID() << " missed deadline." << std::endl;
+        if (rmaTasks[i]->isReady(mTime))
+          std::cout << "Task " << rmaTasks[i]->getID() << " missed deadline" << std::endl;
       }
     }
 
     if (bestPeriodicTask) // if we found a ready periodic task
     {
-      //std::cout << "exectask: " << bestPeriodicTask << std::endl;
       bestPeriodicTask->execute(mTime);
     }
     else if (bestAperiodicTask)
     {
       bestAperiodicTask->execute(mTime);
+    }
+    else
+    {
+      std::cout << "[" << mTime << "ms] : NONE" << std::endl;
     }
     mTime++;
   }

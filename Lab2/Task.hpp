@@ -7,7 +7,6 @@ class Task
     // deadline is the release time for aperiodic and period for periodic
     Task(char id, int execTime, int deadline, bool periodic);
     Task(Task* other);
-    ~Task() { std::cout << "Task " << mID << " destructed" << std::endl;}
     bool operator==(const Task& other);
     bool operator!=(const Task& other);
     bool isPeriodic();
@@ -27,6 +26,5 @@ class Task
     int mReleaseTime;
     int mDeadline;
     bool mPeriodic;
-    //static std::shared_ptr<Task> mPreviouslyExecuted;
     Task* mPreviouslyExecuted = nullptr;
 };
