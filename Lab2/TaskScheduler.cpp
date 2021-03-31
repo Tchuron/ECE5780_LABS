@@ -16,7 +16,7 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	int execTime;
 	int period;
 	int id = 0;
-  bool aperiodicSection = false;
+	bool aperiodicSection = false;
 	std::string idName;
 	std::string input;
 	std::string tempString;
@@ -113,5 +113,28 @@ void TaskScheduler::runScheduleRMA()
 
 void TaskScheduler::runScheduleEDF()
 {
+	std::vector<std::shared_ptr<Task>> edfTasks = {};
+	
+	for (int i = 0; i < mLoadedTasks.size(); i++) // Copy the tasks into the two queues
+	{	
+		std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
+		edfTasks.push_back(copyTask);
+	}
+	
+	while (mTime < mTimeLimit && edfTasks.size() > 0)
+	{
+		// Check which task is ready and has the closest deadline.
+		std::shared_ptr<Task> bestTask;
+		int bestPeriodicTaskPriority = INT_MAX;
+		int bestAperiodicTaskPriority = INT_MAX;
+		
+		for (int i = 0; i < edfTasks.size(); i++)
+		{
+			// Look for the highest priority ready task
+			// the task is aperiodic
+			// check for any late tasks
+			// if we found a ready periodic task
+		}
+	}
 	std::cout << "Nothing here" << std::endl;
 }
