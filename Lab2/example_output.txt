@@ -1,0 +1,2993 @@
+
+running RMA schedule: 
+
+[0ms] : A
+[1ms] : B
+Task B pre-empted A
+[2ms] : B
+[3ms] : B
+[4ms] : C
+Task C pre-empted B
+[5ms] : C
+[6ms] : C
+[7ms] : D
+Task D pre-empted C
+[8ms] : A
+Task A pre-empted D
+[9ms] : D
+Task D pre-empted A
+[10ms] : D
+[11ms] : D
+[12ms] : B
+Task B pre-empted D
+[13ms] : B
+[14ms] : B
+[15ms] : D
+Task D pre-empted B
+[16ms] : A
+Task A pre-empted D
+[17ms] : E
+Task E pre-empted A
+[18ms] : C
+Task C pre-empted E
+[19ms] : C
+[20ms] : C
+[21ms] : E
+Task E pre-empted C
+[22ms] : E
+[23ms] : E
+[24ms] : A
+Task A pre-empted E
+[25ms] : B
+Task B pre-empted A
+[26ms] : B
+[27ms] : B
+[28ms] : D
+Task D pre-empted B
+[29ms] : D
+[30ms] : D
+[31ms] : D
+[32ms] : A
+Task A pre-empted D
+[33ms] : D
+Task D pre-empted A
+[34ms] : E
+Task E pre-empted D
+[35ms] : E
+Task E missed deadline
+[36ms] : B
+Task B pre-empted E
+[37ms] : B
+[38ms] : B
+[39ms] : C
+Task C pre-empted B
+[40ms] : A
+Task A pre-empted C
+[41ms] : C
+Task C pre-empted A
+[42ms] : C
+[43ms] : E
+Task E pre-empted C
+[44ms] : E
+[45ms] : E
+[46ms] : E
+[47ms] : E
+[48ms] : A
+Task A pre-empted E
+[49ms] : B
+Task B pre-empted A
+[50ms] : B
+[51ms] : B
+[52ms] : D
+Task D pre-empted B
+[53ms] : D
+[54ms] : C
+Task C pre-empted D
+[55ms] : C
+[56ms] : A
+Task A pre-empted C
+[57ms] : C
+Task C pre-empted A
+[58ms] : D
+Task D pre-empted C
+[59ms] : D
+[60ms] : B
+Task B pre-empted D
+[61ms] : B
+[62ms] : B
+[63ms] : D
+Task D pre-empted B
+[64ms] : A
+Task A pre-empted D
+[65ms] : E
+Task E pre-empted A
+[66ms] : E
+[67ms] : E
+[68ms] : NONE
+[69ms] : NONE
+[70ms] : NONE
+[71ms] : NONE
+[72ms] : A
+Task A pre-empted E
+[73ms] : B
+Task B pre-empted A
+[74ms] : B
+[75ms] : B
+[76ms] : C
+Task C pre-empted B
+[77ms] : C
+[78ms] : C
+[79ms] : D
+Task D pre-empted C
+[80ms] : A
+Task A pre-empted D
+[81ms] : D
+Task D pre-empted A
+[82ms] : D
+[83ms] : D
+[84ms] : B
+Task B pre-empted D
+[85ms] : B
+[86ms] : B
+[87ms] : D
+Task D pre-empted B
+[88ms] : A
+Task A pre-empted D
+[89ms] : E
+Task E pre-empted A
+[90ms] : C
+Task C pre-empted E
+[91ms] : C
+[92ms] : C
+[93ms] : E
+Task E pre-empted C
+[94ms] : E
+[95ms] : E
+[96ms] : A
+Task A pre-empted E
+[97ms] : B
+Task B pre-empted A
+[98ms] : B
+[99ms] : B
+[100ms] : D
+Task D pre-empted B
+[101ms] : D
+[102ms] : D
+[103ms] : D
+[104ms] : A
+Task A pre-empted D
+[105ms] : D
+Task D pre-empted A
+[106ms] : E
+Task E pre-empted D
+[107ms] : E
+Task E missed deadline
+[108ms] : B
+Task B pre-empted E
+[109ms] : B
+[110ms] : B
+[111ms] : C
+Task C pre-empted B
+[112ms] : A
+Task A pre-empted C
+[113ms] : C
+Task C pre-empted A
+[114ms] : C
+[115ms] : E
+Task E pre-empted C
+[116ms] : E
+[117ms] : E
+[118ms] : E
+[119ms] : E
+[120ms] : A
+Task A pre-empted E
+[121ms] : B
+Task B pre-empted A
+[122ms] : B
+[123ms] : B
+[124ms] : D
+Task D pre-empted B
+[125ms] : D
+[126ms] : C
+Task C pre-empted D
+[127ms] : C
+[128ms] : A
+Task A pre-empted C
+[129ms] : C
+Task C pre-empted A
+[130ms] : D
+Task D pre-empted C
+[131ms] : D
+[132ms] : B
+Task B pre-empted D
+[133ms] : B
+[134ms] : B
+[135ms] : D
+Task D pre-empted B
+[136ms] : A
+Task A pre-empted D
+[137ms] : E
+Task E pre-empted A
+[138ms] : E
+[139ms] : E
+[140ms] : NONE
+[141ms] : NONE
+[142ms] : NONE
+[143ms] : NONE
+[144ms] : A
+Task A pre-empted E
+[145ms] : B
+Task B pre-empted A
+[146ms] : B
+[147ms] : B
+[148ms] : C
+Task C pre-empted B
+[149ms] : C
+[150ms] : C
+[151ms] : D
+Task D pre-empted C
+[152ms] : A
+Task A pre-empted D
+[153ms] : D
+Task D pre-empted A
+[154ms] : D
+[155ms] : D
+[156ms] : B
+Task B pre-empted D
+[157ms] : B
+[158ms] : B
+[159ms] : D
+Task D pre-empted B
+[160ms] : A
+Task A pre-empted D
+[161ms] : E
+Task E pre-empted A
+[162ms] : C
+Task C pre-empted E
+[163ms] : C
+[164ms] : C
+[165ms] : E
+Task E pre-empted C
+[166ms] : E
+[167ms] : E
+[168ms] : A
+Task A pre-empted E
+[169ms] : B
+Task B pre-empted A
+[170ms] : B
+[171ms] : B
+[172ms] : D
+Task D pre-empted B
+[173ms] : D
+[174ms] : D
+[175ms] : D
+[176ms] : A
+Task A pre-empted D
+[177ms] : D
+Task D pre-empted A
+[178ms] : E
+Task E pre-empted D
+[179ms] : E
+Task E missed deadline
+[180ms] : B
+Task B pre-empted E
+[181ms] : B
+[182ms] : B
+[183ms] : C
+Task C pre-empted B
+[184ms] : A
+Task A pre-empted C
+[185ms] : C
+Task C pre-empted A
+[186ms] : C
+[187ms] : E
+Task E pre-empted C
+[188ms] : E
+[189ms] : E
+[190ms] : E
+[191ms] : E
+[192ms] : A
+Task A pre-empted E
+[193ms] : B
+Task B pre-empted A
+[194ms] : B
+[195ms] : B
+[196ms] : D
+Task D pre-empted B
+[197ms] : D
+[198ms] : C
+Task C pre-empted D
+[199ms] : C
+[200ms] : A
+Task A pre-empted C
+[201ms] : C
+Task C pre-empted A
+[202ms] : D
+Task D pre-empted C
+[203ms] : D
+[204ms] : B
+Task B pre-empted D
+[205ms] : B
+[206ms] : B
+[207ms] : D
+Task D pre-empted B
+[208ms] : A
+Task A pre-empted D
+[209ms] : E
+Task E pre-empted A
+[210ms] : E
+[211ms] : E
+[212ms] : W
+Task W pre-empted E
+[213ms] : W
+[214ms] : W
+[215ms] : W
+[216ms] : A
+Task A pre-empted W
+[217ms] : B
+Task B pre-empted A
+[218ms] : B
+[219ms] : B
+[220ms] : C
+Task C pre-empted B
+[221ms] : C
+[222ms] : C
+[223ms] : D
+Task D pre-empted C
+[224ms] : A
+Task A pre-empted D
+[225ms] : D
+Task D pre-empted A
+[226ms] : D
+[227ms] : D
+[228ms] : B
+Task B pre-empted D
+[229ms] : B
+[230ms] : B
+[231ms] : D
+Task D pre-empted B
+[232ms] : A
+Task A pre-empted D
+[233ms] : E
+Task E pre-empted A
+[234ms] : C
+Task C pre-empted E
+[235ms] : C
+[236ms] : C
+[237ms] : E
+Task E pre-empted C
+[238ms] : E
+[239ms] : E
+[240ms] : A
+Task A pre-empted E
+[241ms] : B
+Task B pre-empted A
+[242ms] : B
+[243ms] : B
+[244ms] : D
+Task D pre-empted B
+[245ms] : D
+[246ms] : D
+[247ms] : D
+[248ms] : A
+Task A pre-empted D
+[249ms] : D
+Task D pre-empted A
+[250ms] : E
+Task E pre-empted D
+[251ms] : E
+Task E missed deadline
+[252ms] : B
+Task B pre-empted E
+[253ms] : B
+[254ms] : B
+[255ms] : C
+Task C pre-empted B
+[256ms] : A
+Task A pre-empted C
+[257ms] : C
+Task C pre-empted A
+[258ms] : C
+[259ms] : E
+Task E pre-empted C
+[260ms] : E
+[261ms] : E
+[262ms] : E
+[263ms] : E
+[264ms] : A
+Task A pre-empted E
+[265ms] : B
+Task B pre-empted A
+[266ms] : B
+[267ms] : B
+[268ms] : D
+Task D pre-empted B
+[269ms] : D
+[270ms] : C
+Task C pre-empted D
+[271ms] : C
+[272ms] : A
+Task A pre-empted C
+[273ms] : C
+Task C pre-empted A
+[274ms] : D
+Task D pre-empted C
+[275ms] : D
+[276ms] : B
+Task B pre-empted D
+[277ms] : B
+[278ms] : B
+[279ms] : D
+Task D pre-empted B
+[280ms] : A
+Task A pre-empted D
+[281ms] : E
+Task E pre-empted A
+[282ms] : E
+[283ms] : E
+[284ms] : W
+Task W pre-empted E
+[285ms] : W
+[286ms] : W
+[287ms] : W
+[288ms] : A
+Task A pre-empted W
+[289ms] : B
+Task B pre-empted A
+[290ms] : B
+[291ms] : B
+[292ms] : C
+Task C pre-empted B
+[293ms] : C
+[294ms] : C
+[295ms] : D
+Task D pre-empted C
+[296ms] : A
+Task A pre-empted D
+[297ms] : D
+Task D pre-empted A
+[298ms] : D
+[299ms] : D
+[300ms] : B
+Task B pre-empted D
+[301ms] : B
+[302ms] : B
+[303ms] : D
+Task D pre-empted B
+[304ms] : A
+Task A pre-empted D
+[305ms] : E
+Task E pre-empted A
+[306ms] : C
+Task C pre-empted E
+[307ms] : C
+[308ms] : C
+[309ms] : E
+Task E pre-empted C
+[310ms] : E
+[311ms] : E
+[312ms] : A
+Task A pre-empted E
+[313ms] : B
+Task B pre-empted A
+[314ms] : B
+[315ms] : B
+[316ms] : D
+Task D pre-empted B
+[317ms] : D
+[318ms] : D
+[319ms] : D
+[320ms] : A
+Task A pre-empted D
+[321ms] : D
+Task D pre-empted A
+[322ms] : E
+Task E pre-empted D
+[323ms] : E
+Task E missed deadline
+[324ms] : B
+Task B pre-empted E
+[325ms] : B
+[326ms] : B
+[327ms] : C
+Task C pre-empted B
+[328ms] : A
+Task A pre-empted C
+[329ms] : C
+Task C pre-empted A
+[330ms] : C
+[331ms] : E
+Task E pre-empted C
+[332ms] : E
+[333ms] : E
+[334ms] : E
+[335ms] : E
+[336ms] : A
+Task A pre-empted E
+[337ms] : B
+Task B pre-empted A
+[338ms] : B
+[339ms] : B
+[340ms] : D
+Task D pre-empted B
+[341ms] : D
+[342ms] : C
+Task C pre-empted D
+[343ms] : C
+[344ms] : A
+Task A pre-empted C
+[345ms] : C
+Task C pre-empted A
+[346ms] : D
+Task D pre-empted C
+[347ms] : D
+[348ms] : B
+Task B pre-empted D
+[349ms] : B
+[350ms] : B
+[351ms] : D
+Task D pre-empted B
+[352ms] : A
+Task A pre-empted D
+[353ms] : E
+Task E pre-empted A
+[354ms] : E
+[355ms] : E
+[356ms] : W
+Task W pre-empted E
+[357ms] : W
+[358ms] : W
+[359ms] : W
+[360ms] : A
+Task A pre-empted W
+[361ms] : B
+Task B pre-empted A
+[362ms] : B
+[363ms] : B
+[364ms] : C
+Task C pre-empted B
+[365ms] : C
+[366ms] : C
+[367ms] : D
+Task D pre-empted C
+[368ms] : A
+Task A pre-empted D
+[369ms] : D
+Task D pre-empted A
+[370ms] : D
+[371ms] : D
+[372ms] : B
+Task B pre-empted D
+[373ms] : B
+[374ms] : B
+[375ms] : D
+Task D pre-empted B
+[376ms] : A
+Task A pre-empted D
+[377ms] : E
+Task E pre-empted A
+[378ms] : C
+Task C pre-empted E
+[379ms] : C
+[380ms] : C
+[381ms] : E
+Task E pre-empted C
+[382ms] : E
+[383ms] : E
+[384ms] : A
+Task A pre-empted E
+[385ms] : B
+Task B pre-empted A
+[386ms] : B
+[387ms] : B
+[388ms] : D
+Task D pre-empted B
+[389ms] : D
+[390ms] : D
+[391ms] : D
+[392ms] : A
+Task A pre-empted D
+[393ms] : D
+Task D pre-empted A
+[394ms] : E
+Task E pre-empted D
+[395ms] : E
+Task E missed deadline
+[396ms] : B
+Task B pre-empted E
+[397ms] : B
+[398ms] : B
+[399ms] : C
+Task C pre-empted B
+[400ms] : A
+Task A pre-empted C
+[401ms] : C
+Task C pre-empted A
+[402ms] : C
+[403ms] : E
+Task E pre-empted C
+[404ms] : E
+[405ms] : E
+[406ms] : E
+[407ms] : E
+[408ms] : A
+Task A pre-empted E
+[409ms] : B
+Task B pre-empted A
+[410ms] : B
+[411ms] : B
+[412ms] : D
+Task D pre-empted B
+[413ms] : D
+[414ms] : C
+Task C pre-empted D
+[415ms] : C
+[416ms] : A
+Task A pre-empted C
+[417ms] : C
+Task C pre-empted A
+[418ms] : D
+Task D pre-empted C
+[419ms] : D
+[420ms] : B
+Task B pre-empted D
+[421ms] : B
+[422ms] : B
+[423ms] : D
+Task D pre-empted B
+[424ms] : A
+Task A pre-empted D
+[425ms] : E
+Task E pre-empted A
+[426ms] : E
+[427ms] : E
+[428ms] : W
+Task W pre-empted E
+[429ms] : W
+[430ms] : W
+[431ms] : X
+[432ms] : A
+Task A pre-empted X
+[433ms] : B
+Task B pre-empted A
+[434ms] : B
+[435ms] : B
+[436ms] : C
+Task C pre-empted B
+[437ms] : C
+[438ms] : C
+[439ms] : D
+Task D pre-empted C
+[440ms] : A
+Task A pre-empted D
+[441ms] : D
+Task D pre-empted A
+[442ms] : D
+[443ms] : D
+[444ms] : B
+Task B pre-empted D
+[445ms] : B
+[446ms] : B
+[447ms] : D
+Task D pre-empted B
+[448ms] : A
+Task A pre-empted D
+[449ms] : E
+Task E pre-empted A
+[450ms] : C
+Task C pre-empted E
+[451ms] : C
+[452ms] : C
+[453ms] : E
+Task E pre-empted C
+[454ms] : E
+[455ms] : E
+[456ms] : A
+Task A pre-empted E
+[457ms] : B
+Task B pre-empted A
+[458ms] : B
+[459ms] : B
+[460ms] : D
+Task D pre-empted B
+[461ms] : D
+[462ms] : D
+[463ms] : D
+[464ms] : A
+Task A pre-empted D
+[465ms] : D
+Task D pre-empted A
+[466ms] : E
+Task E pre-empted D
+[467ms] : E
+Task E missed deadline
+[468ms] : B
+Task B pre-empted E
+[469ms] : B
+[470ms] : B
+[471ms] : C
+Task C pre-empted B
+[472ms] : A
+Task A pre-empted C
+[473ms] : C
+Task C pre-empted A
+[474ms] : C
+[475ms] : E
+Task E pre-empted C
+[476ms] : E
+[477ms] : E
+[478ms] : E
+[479ms] : E
+[480ms] : A
+Task A pre-empted E
+[481ms] : B
+Task B pre-empted A
+[482ms] : B
+[483ms] : B
+[484ms] : D
+Task D pre-empted B
+[485ms] : D
+[486ms] : C
+Task C pre-empted D
+[487ms] : C
+[488ms] : A
+Task A pre-empted C
+[489ms] : C
+Task C pre-empted A
+[490ms] : D
+Task D pre-empted C
+[491ms] : D
+[492ms] : B
+Task B pre-empted D
+[493ms] : B
+[494ms] : B
+[495ms] : D
+Task D pre-empted B
+[496ms] : A
+Task A pre-empted D
+[497ms] : E
+Task E pre-empted A
+[498ms] : E
+[499ms] : E
+[500ms] : X
+Task X pre-empted E
+[501ms] : X
+[502ms] : X
+[503ms] : X
+[504ms] : A
+Task A pre-empted X
+[505ms] : B
+Task B pre-empted A
+[506ms] : B
+[507ms] : B
+[508ms] : C
+Task C pre-empted B
+[509ms] : C
+[510ms] : C
+[511ms] : D
+Task D pre-empted C
+[512ms] : A
+Task A pre-empted D
+[513ms] : D
+Task D pre-empted A
+[514ms] : D
+[515ms] : D
+[516ms] : B
+Task B pre-empted D
+[517ms] : B
+[518ms] : B
+[519ms] : D
+Task D pre-empted B
+[520ms] : A
+Task A pre-empted D
+[521ms] : E
+Task E pre-empted A
+[522ms] : C
+Task C pre-empted E
+[523ms] : C
+[524ms] : C
+[525ms] : E
+Task E pre-empted C
+[526ms] : E
+[527ms] : E
+[528ms] : A
+Task A pre-empted E
+[529ms] : B
+Task B pre-empted A
+[530ms] : B
+[531ms] : B
+[532ms] : D
+Task D pre-empted B
+[533ms] : D
+[534ms] : D
+[535ms] : D
+[536ms] : A
+Task A pre-empted D
+[537ms] : D
+Task D pre-empted A
+[538ms] : E
+Task E pre-empted D
+[539ms] : E
+Task E missed deadline
+[540ms] : B
+Task B pre-empted E
+[541ms] : B
+[542ms] : B
+[543ms] : C
+Task C pre-empted B
+[544ms] : A
+Task A pre-empted C
+[545ms] : C
+Task C pre-empted A
+[546ms] : C
+[547ms] : E
+Task E pre-empted C
+[548ms] : E
+[549ms] : E
+[550ms] : E
+[551ms] : E
+[552ms] : A
+Task A pre-empted E
+[553ms] : B
+Task B pre-empted A
+[554ms] : B
+[555ms] : B
+[556ms] : D
+Task D pre-empted B
+[557ms] : D
+[558ms] : C
+Task C pre-empted D
+[559ms] : C
+[560ms] : A
+Task A pre-empted C
+[561ms] : C
+Task C pre-empted A
+[562ms] : D
+Task D pre-empted C
+[563ms] : D
+[564ms] : B
+Task B pre-empted D
+[565ms] : B
+[566ms] : B
+[567ms] : D
+Task D pre-empted B
+[568ms] : A
+Task A pre-empted D
+[569ms] : E
+Task E pre-empted A
+[570ms] : E
+[571ms] : E
+[572ms] : X
+Task X pre-empted E
+[573ms] : X
+[574ms] : X
+[575ms] : X
+[576ms] : A
+Task A pre-empted X
+[577ms] : B
+Task B pre-empted A
+[578ms] : B
+[579ms] : B
+[580ms] : C
+Task C pre-empted B
+[581ms] : C
+[582ms] : C
+[583ms] : D
+Task D pre-empted C
+[584ms] : A
+Task A pre-empted D
+[585ms] : D
+Task D pre-empted A
+[586ms] : D
+[587ms] : D
+[588ms] : B
+Task B pre-empted D
+[589ms] : B
+[590ms] : B
+[591ms] : D
+Task D pre-empted B
+[592ms] : A
+Task A pre-empted D
+[593ms] : E
+Task E pre-empted A
+[594ms] : C
+Task C pre-empted E
+[595ms] : C
+[596ms] : C
+[597ms] : E
+Task E pre-empted C
+[598ms] : E
+[599ms] : E
+[600ms] : A
+Task A pre-empted E
+[601ms] : B
+Task B pre-empted A
+[602ms] : B
+[603ms] : B
+[604ms] : D
+Task D pre-empted B
+[605ms] : D
+[606ms] : D
+[607ms] : D
+[608ms] : A
+Task A pre-empted D
+[609ms] : D
+Task D pre-empted A
+[610ms] : E
+Task E pre-empted D
+[611ms] : E
+Task E missed deadline
+[612ms] : B
+Task B pre-empted E
+[613ms] : B
+[614ms] : B
+[615ms] : C
+Task C pre-empted B
+[616ms] : A
+Task A pre-empted C
+[617ms] : C
+Task C pre-empted A
+[618ms] : C
+[619ms] : E
+Task E pre-empted C
+[620ms] : E
+[621ms] : E
+[622ms] : E
+[623ms] : E
+[624ms] : A
+Task A pre-empted E
+[625ms] : B
+Task B pre-empted A
+[626ms] : B
+[627ms] : B
+[628ms] : D
+Task D pre-empted B
+[629ms] : D
+[630ms] : C
+Task C pre-empted D
+[631ms] : C
+[632ms] : A
+Task A pre-empted C
+[633ms] : C
+Task C pre-empted A
+[634ms] : D
+Task D pre-empted C
+[635ms] : D
+[636ms] : B
+Task B pre-empted D
+[637ms] : B
+[638ms] : B
+[639ms] : D
+Task D pre-empted B
+[640ms] : A
+Task A pre-empted D
+[641ms] : E
+Task E pre-empted A
+[642ms] : E
+[643ms] : E
+[644ms] : X
+Task X pre-empted E
+[645ms] : Y
+[646ms] : Y
+[647ms] : Y
+[648ms] : A
+Task A pre-empted Y
+[649ms] : B
+Task B pre-empted A
+[650ms] : B
+[651ms] : B
+[652ms] : C
+Task C pre-empted B
+[653ms] : C
+[654ms] : C
+[655ms] : D
+Task D pre-empted C
+[656ms] : A
+Task A pre-empted D
+[657ms] : D
+Task D pre-empted A
+[658ms] : D
+[659ms] : D
+[660ms] : B
+Task B pre-empted D
+[661ms] : B
+[662ms] : B
+[663ms] : D
+Task D pre-empted B
+[664ms] : A
+Task A pre-empted D
+[665ms] : E
+Task E pre-empted A
+[666ms] : C
+Task C pre-empted E
+[667ms] : C
+[668ms] : C
+[669ms] : E
+Task E pre-empted C
+[670ms] : E
+[671ms] : E
+[672ms] : A
+Task A pre-empted E
+[673ms] : B
+Task B pre-empted A
+[674ms] : B
+Task W missed deadline
+[675ms] : B
+[676ms] : D
+Task D pre-empted B
+[677ms] : D
+[678ms] : D
+[679ms] : D
+[680ms] : A
+Task A pre-empted D
+[681ms] : D
+Task D pre-empted A
+[682ms] : E
+Task E pre-empted D
+[683ms] : E
+Task E missed deadline
+[684ms] : B
+Task B pre-empted E
+[685ms] : B
+[686ms] : B
+[687ms] : C
+Task C pre-empted B
+[688ms] : A
+Task A pre-empted C
+[689ms] : C
+Task C pre-empted A
+[690ms] : C
+[691ms] : E
+Task E pre-empted C
+[692ms] : E
+[693ms] : E
+[694ms] : E
+[695ms] : E
+[696ms] : A
+Task A pre-empted E
+[697ms] : B
+Task B pre-empted A
+[698ms] : B
+[699ms] : B
+[700ms] : D
+Task D pre-empted B
+[701ms] : D
+[702ms] : C
+Task C pre-empted D
+[703ms] : C
+[704ms] : A
+Task A pre-empted C
+[705ms] : C
+Task C pre-empted A
+[706ms] : D
+Task D pre-empted C
+[707ms] : D
+[708ms] : B
+Task B pre-empted D
+[709ms] : B
+[710ms] : B
+[711ms] : D
+Task D pre-empted B
+[712ms] : A
+Task A pre-empted D
+[713ms] : E
+Task E pre-empted A
+[714ms] : E
+[715ms] : E
+[716ms] : Y
+Task Y pre-empted E
+[717ms] : Y
+[718ms] : Y
+[719ms] : Y
+[720ms] : A
+Task A pre-empted Y
+[721ms] : B
+Task B pre-empted A
+[722ms] : B
+[723ms] : B
+[724ms] : C
+Task C pre-empted B
+[725ms] : C
+[726ms] : C
+[727ms] : D
+Task D pre-empted C
+[728ms] : A
+Task A pre-empted D
+[729ms] : D
+Task D pre-empted A
+Task X missed deadline
+[730ms] : D
+[731ms] : D
+[732ms] : B
+Task B pre-empted D
+[733ms] : B
+[734ms] : B
+[735ms] : D
+Task D pre-empted B
+[736ms] : A
+Task A pre-empted D
+[737ms] : E
+Task E pre-empted A
+[738ms] : C
+Task C pre-empted E
+[739ms] : C
+[740ms] : C
+[741ms] : E
+Task E pre-empted C
+[742ms] : E
+[743ms] : E
+[744ms] : A
+Task A pre-empted E
+[745ms] : B
+Task B pre-empted A
+[746ms] : B
+[747ms] : B
+[748ms] : D
+Task D pre-empted B
+[749ms] : D
+[750ms] : D
+[751ms] : D
+[752ms] : A
+Task A pre-empted D
+[753ms] : D
+Task D pre-empted A
+[754ms] : E
+Task E pre-empted D
+[755ms] : E
+Task E missed deadline
+[756ms] : B
+Task B pre-empted E
+[757ms] : B
+[758ms] : B
+[759ms] : C
+Task C pre-empted B
+[760ms] : A
+Task A pre-empted C
+[761ms] : C
+Task C pre-empted A
+[762ms] : C
+[763ms] : E
+Task E pre-empted C
+[764ms] : E
+Task Y missed deadline
+[765ms] : E
+[766ms] : E
+[767ms] : E
+[768ms] : A
+Task A pre-empted E
+[769ms] : B
+Task B pre-empted A
+[770ms] : B
+[771ms] : B
+[772ms] : D
+Task D pre-empted B
+[773ms] : D
+[774ms] : C
+Task C pre-empted D
+[775ms] : C
+[776ms] : A
+Task A pre-empted C
+[777ms] : C
+Task C pre-empted A
+[778ms] : D
+Task D pre-empted C
+[779ms] : D
+Task Z missed deadline
+Task Z missed deadline
+[780ms] : B
+Task B pre-empted D
+[781ms] : B
+[782ms] : B
+[783ms] : D
+Task D pre-empted B
+[784ms] : A
+Task A pre-empted D
+[785ms] : E
+Task E pre-empted A
+[786ms] : E
+[787ms] : E
+[788ms] : Y
+Task Y pre-empted E
+[789ms] : Y
+[790ms] : Y
+[791ms] : Z
+[792ms] : A
+Task A pre-empted Z
+[793ms] : B
+Task B pre-empted A
+[794ms] : B
+[795ms] : B
+[796ms] : C
+Task C pre-empted B
+[797ms] : C
+[798ms] : C
+[799ms] : D
+Task D pre-empted C
+[800ms] : A
+Task A pre-empted D
+[801ms] : D
+Task D pre-empted A
+[802ms] : D
+[803ms] : D
+[804ms] : B
+Task B pre-empted D
+[805ms] : B
+[806ms] : B
+[807ms] : D
+Task D pre-empted B
+[808ms] : A
+Task A pre-empted D
+[809ms] : E
+Task E pre-empted A
+[810ms] : C
+Task C pre-empted E
+[811ms] : C
+[812ms] : C
+[813ms] : E
+Task E pre-empted C
+[814ms] : E
+[815ms] : E
+[816ms] : A
+Task A pre-empted E
+[817ms] : B
+Task B pre-empted A
+[818ms] : B
+[819ms] : B
+[820ms] : D
+Task D pre-empted B
+[821ms] : D
+[822ms] : D
+[823ms] : D
+[824ms] : A
+Task A pre-empted D
+[825ms] : D
+Task D pre-empted A
+[826ms] : E
+Task E pre-empted D
+[827ms] : E
+Task E missed deadline
+[828ms] : B
+Task B pre-empted E
+[829ms] : B
+[830ms] : B
+[831ms] : C
+Task C pre-empted B
+[832ms] : A
+Task A pre-empted C
+[833ms] : C
+Task C pre-empted A
+[834ms] : C
+[835ms] : E
+Task E pre-empted C
+[836ms] : E
+[837ms] : E
+[838ms] : E
+[839ms] : E
+[840ms] : A
+Task A pre-empted E
+[841ms] : B
+Task B pre-empted A
+[842ms] : B
+[843ms] : B
+[844ms] : D
+Task D pre-empted B
+[845ms] : D
+[846ms] : C
+Task C pre-empted D
+[847ms] : C
+[848ms] : A
+Task A pre-empted C
+[849ms] : C
+Task C pre-empted A
+[850ms] : D
+Task D pre-empted C
+[851ms] : D
+[852ms] : B
+Task B pre-empted D
+[853ms] : B
+[854ms] : B
+[855ms] : D
+Task D pre-empted B
+[856ms] : A
+Task A pre-empted D
+[857ms] : E
+Task E pre-empted A
+[858ms] : E
+[859ms] : E
+[860ms] : Z
+Task Z pre-empted E
+[861ms] : Z
+[862ms] : Z
+[863ms] : Z
+[864ms] : A
+Task A pre-empted Z
+[865ms] : B
+Task B pre-empted A
+[866ms] : B
+[867ms] : B
+[868ms] : C
+Task C pre-empted B
+[869ms] : C
+[870ms] : C
+[871ms] : D
+Task D pre-empted C
+[872ms] : A
+Task A pre-empted D
+[873ms] : D
+Task D pre-empted A
+[874ms] : D
+[875ms] : D
+[876ms] : B
+Task B pre-empted D
+[877ms] : B
+[878ms] : B
+[879ms] : D
+Task D pre-empted B
+[880ms] : A
+Task A pre-empted D
+[881ms] : E
+Task E pre-empted A
+[882ms] : C
+Task C pre-empted E
+[883ms] : C
+[884ms] : C
+[885ms] : E
+Task E pre-empted C
+[886ms] : E
+[887ms] : E
+[888ms] : A
+Task A pre-empted E
+[889ms] : B
+Task B pre-empted A
+[890ms] : B
+[891ms] : B
+[892ms] : D
+Task D pre-empted B
+[893ms] : D
+[894ms] : D
+[895ms] : D
+[896ms] : A
+Task A pre-empted D
+[897ms] : D
+Task D pre-empted A
+[898ms] : E
+Task E pre-empted D
+[899ms] : E
+Task E missed deadline
+[900ms] : B
+Task B pre-empted E
+[901ms] : B
+[902ms] : B
+[903ms] : C
+Task C pre-empted B
+[904ms] : A
+Task A pre-empted C
+[905ms] : C
+Task C pre-empted A
+[906ms] : C
+[907ms] : E
+Task E pre-empted C
+[908ms] : E
+[909ms] : E
+[910ms] : E
+[911ms] : E
+[912ms] : A
+Task A pre-empted E
+[913ms] : B
+Task B pre-empted A
+[914ms] : B
+[915ms] : B
+[916ms] : D
+Task D pre-empted B
+[917ms] : D
+[918ms] : C
+Task C pre-empted D
+[919ms] : C
+[920ms] : A
+Task A pre-empted C
+[921ms] : C
+Task C pre-empted A
+[922ms] : D
+Task D pre-empted C
+[923ms] : D
+[924ms] : B
+Task B pre-empted D
+[925ms] : B
+[926ms] : B
+[927ms] : D
+Task D pre-empted B
+[928ms] : A
+Task A pre-empted D
+[929ms] : E
+Task E pre-empted A
+[930ms] : E
+[931ms] : E
+[932ms] : Z
+Task Z pre-empted E
+[933ms] : Z
+[934ms] : Z
+[935ms] : Z
+[936ms] : A
+Task A pre-empted Z
+[937ms] : B
+Task B pre-empted A
+[938ms] : B
+[939ms] : B
+[940ms] : C
+Task C pre-empted B
+[941ms] : C
+[942ms] : C
+[943ms] : D
+Task D pre-empted C
+[944ms] : A
+Task A pre-empted D
+[945ms] : D
+Task D pre-empted A
+[946ms] : D
+[947ms] : D
+[948ms] : B
+Task B pre-empted D
+[949ms] : B
+[950ms] : B
+[951ms] : D
+Task D pre-empted B
+[952ms] : A
+Task A pre-empted D
+[953ms] : E
+Task E pre-empted A
+[954ms] : C
+Task C pre-empted E
+[955ms] : C
+[956ms] : C
+[957ms] : E
+Task E pre-empted C
+[958ms] : E
+[959ms] : E
+[960ms] : A
+Task A pre-empted E
+[961ms] : B
+Task B pre-empted A
+[962ms] : B
+[963ms] : B
+[964ms] : D
+Task D pre-empted B
+[965ms] : D
+[966ms] : D
+[967ms] : D
+[968ms] : A
+Task A pre-empted D
+[969ms] : D
+Task D pre-empted A
+[970ms] : E
+Task E pre-empted D
+[971ms] : E
+Task E missed deadline
+[972ms] : B
+Task B pre-empted E
+[973ms] : B
+[974ms] : B
+[975ms] : C
+Task C pre-empted B
+[976ms] : A
+Task A pre-empted C
+[977ms] : C
+Task C pre-empted A
+[978ms] : C
+[979ms] : E
+Task E pre-empted C
+[980ms] : E
+[981ms] : E
+[982ms] : E
+[983ms] : E
+[984ms] : A
+Task A pre-empted E
+[985ms] : B
+Task B pre-empted A
+[986ms] : B
+[987ms] : B
+[988ms] : D
+Task D pre-empted B
+[989ms] : D
+[990ms] : C
+Task C pre-empted D
+[991ms] : C
+[992ms] : A
+Task A pre-empted C
+[993ms] : C
+Task C pre-empted A
+[994ms] : D
+Task D pre-empted C
+[995ms] : D
+[996ms] : B
+Task B pre-empted D
+[997ms] : B
+[998ms] : B
+[999ms] : D
+Task D pre-empted B
+
+running EDF schedule: 
+
+[0ms] : A
+Task A pre-empted C
+[1ms] : B
+Task B pre-empted A
+[2ms] : B
+[3ms] : B
+[4ms] : C
+Task C pre-empted B
+[5ms] : C
+[6ms] : C
+[7ms] : D
+Task D pre-empted C
+[8ms] : A
+Task A pre-empted D
+[9ms] : D
+Task D pre-empted A
+[10ms] : D
+[11ms] : D
+[12ms] : B
+Task B pre-empted D
+[13ms] : B
+[14ms] : B
+[15ms] : D
+Task D pre-empted B
+[16ms] : A
+Task A pre-empted D
+[17ms] : E
+Task E pre-empted A
+[18ms] : C
+Task C pre-empted E
+[19ms] : C
+[20ms] : C
+[21ms] : E
+Task E pre-empted C
+[22ms] : E
+[23ms] : E
+[24ms] : A
+Task A pre-empted E
+[25ms] : B
+Task B pre-empted A
+[26ms] : B
+[27ms] : B
+[28ms] : E
+Task E pre-empted B
+[29ms] : E
+[30ms] : E
+[31ms] : D
+Task D pre-empted E
+[32ms] : A
+Task A pre-empted D
+[33ms] : D
+Task D pre-empted A
+[34ms] : D
+[35ms] : D
+[36ms] : B
+Task B pre-empted D
+[37ms] : B
+[38ms] : B
+[39ms] : D
+Task D pre-empted B
+[40ms] : A
+Task A pre-empted D
+[41ms] : C
+Task C pre-empted A
+[42ms] : C
+[43ms] : C
+[44ms] : E
+Task E pre-empted C
+[45ms] : E
+[46ms] : E
+[47ms] : E
+[48ms] : A
+Task A pre-empted E
+[49ms] : B
+Task B pre-empted A
+[50ms] : B
+[51ms] : B
+[52ms] : D
+Task D pre-empted B
+[53ms] : D
+[54ms] : C
+Task C pre-empted D
+[55ms] : C
+[56ms] : A
+Task A pre-empted C
+[57ms] : C
+Task C pre-empted A
+[58ms] : D
+Task D pre-empted C
+[59ms] : D
+[60ms] : B
+Task B pre-empted D
+[61ms] : B
+[62ms] : B
+[63ms] : D
+Task D pre-empted B
+[64ms] : A
+Task A pre-empted D
+[65ms] : E
+Task E pre-empted A
+[66ms] : E
+[67ms] : E
+[68ms] : NONE
+[69ms] : NONE
+[70ms] : NONE
+[71ms] : NONE
+[72ms] : A
+Task A pre-empted E
+[73ms] : B
+Task B pre-empted A
+[74ms] : B
+[75ms] : B
+[76ms] : C
+Task C pre-empted B
+[77ms] : C
+[78ms] : C
+[79ms] : D
+Task D pre-empted C
+[80ms] : A
+Task A pre-empted D
+[81ms] : D
+Task D pre-empted A
+[82ms] : D
+[83ms] : D
+[84ms] : B
+Task B pre-empted D
+[85ms] : B
+[86ms] : B
+[87ms] : D
+Task D pre-empted B
+[88ms] : A
+Task A pre-empted D
+[89ms] : E
+Task E pre-empted A
+[90ms] : C
+Task C pre-empted E
+[91ms] : C
+[92ms] : C
+[93ms] : E
+Task E pre-empted C
+[94ms] : E
+[95ms] : E
+[96ms] : A
+Task A pre-empted E
+[97ms] : B
+Task B pre-empted A
+[98ms] : B
+[99ms] : B
+[100ms] : E
+Task E pre-empted B
+[101ms] : E
+[102ms] : E
+[103ms] : D
+Task D pre-empted E
+[104ms] : A
+Task A pre-empted D
+[105ms] : D
+Task D pre-empted A
+[106ms] : D
+[107ms] : D
+[108ms] : B
+Task B pre-empted D
+[109ms] : B
+[110ms] : B
+[111ms] : D
+Task D pre-empted B
+[112ms] : A
+Task A pre-empted D
+[113ms] : C
+Task C pre-empted A
+[114ms] : C
+[115ms] : C
+[116ms] : E
+Task E pre-empted C
+[117ms] : E
+[118ms] : E
+[119ms] : E
+[120ms] : A
+Task A pre-empted E
+[121ms] : B
+Task B pre-empted A
+[122ms] : B
+[123ms] : B
+[124ms] : D
+Task D pre-empted B
+[125ms] : D
+[126ms] : C
+Task C pre-empted D
+[127ms] : C
+[128ms] : A
+Task A pre-empted C
+[129ms] : C
+Task C pre-empted A
+[130ms] : D
+Task D pre-empted C
+[131ms] : D
+[132ms] : B
+Task B pre-empted D
+[133ms] : B
+[134ms] : B
+[135ms] : D
+Task D pre-empted B
+[136ms] : A
+Task A pre-empted D
+[137ms] : E
+Task E pre-empted A
+[138ms] : E
+[139ms] : E
+[140ms] : NONE
+[141ms] : NONE
+[142ms] : NONE
+[143ms] : NONE
+[144ms] : A
+Task A pre-empted E
+[145ms] : B
+Task B pre-empted A
+[146ms] : B
+[147ms] : B
+[148ms] : C
+Task C pre-empted B
+[149ms] : C
+[150ms] : C
+[151ms] : D
+Task D pre-empted C
+[152ms] : A
+Task A pre-empted D
+[153ms] : D
+Task D pre-empted A
+[154ms] : D
+[155ms] : D
+[156ms] : B
+Task B pre-empted D
+[157ms] : B
+[158ms] : B
+[159ms] : D
+Task D pre-empted B
+[160ms] : A
+Task A pre-empted D
+[161ms] : E
+Task E pre-empted A
+[162ms] : C
+Task C pre-empted E
+[163ms] : C
+[164ms] : C
+[165ms] : E
+Task E pre-empted C
+[166ms] : E
+[167ms] : E
+[168ms] : A
+Task A pre-empted E
+[169ms] : B
+Task B pre-empted A
+[170ms] : B
+[171ms] : B
+[172ms] : E
+Task E pre-empted B
+[173ms] : E
+[174ms] : E
+[175ms] : D
+Task D pre-empted E
+[176ms] : A
+Task A pre-empted D
+[177ms] : D
+Task D pre-empted A
+[178ms] : D
+[179ms] : D
+[180ms] : B
+Task B pre-empted D
+[181ms] : B
+[182ms] : B
+[183ms] : D
+Task D pre-empted B
+[184ms] : A
+Task A pre-empted D
+[185ms] : C
+Task C pre-empted A
+[186ms] : C
+[187ms] : C
+[188ms] : E
+Task E pre-empted C
+[189ms] : E
+[190ms] : E
+[191ms] : E
+[192ms] : A
+Task A pre-empted E
+[193ms] : B
+Task B pre-empted A
+[194ms] : B
+[195ms] : B
+[196ms] : D
+Task D pre-empted B
+[197ms] : D
+[198ms] : C
+Task C pre-empted D
+[199ms] : C
+[200ms] : A
+Task A pre-empted C
+[201ms] : C
+Task C pre-empted A
+[202ms] : D
+Task D pre-empted C
+[203ms] : D
+[204ms] : B
+Task B pre-empted D
+[205ms] : B
+[206ms] : B
+[207ms] : D
+Task D pre-empted B
+[208ms] : A
+Task A pre-empted D
+[209ms] : E
+Task E pre-empted A
+[210ms] : E
+[211ms] : E
+[212ms] : W
+Task W pre-empted E
+[213ms] : W
+[214ms] : W
+[215ms] : W
+[216ms] : A
+Task A pre-empted W
+[217ms] : B
+Task B pre-empted A
+[218ms] : B
+[219ms] : B
+[220ms] : C
+Task C pre-empted B
+[221ms] : C
+[222ms] : C
+[223ms] : D
+Task D pre-empted C
+[224ms] : A
+Task A pre-empted D
+[225ms] : D
+Task D pre-empted A
+[226ms] : D
+[227ms] : D
+[228ms] : B
+Task B pre-empted D
+[229ms] : B
+[230ms] : B
+[231ms] : D
+Task D pre-empted B
+[232ms] : A
+Task A pre-empted D
+[233ms] : E
+Task E pre-empted A
+[234ms] : C
+Task C pre-empted E
+[235ms] : C
+[236ms] : C
+[237ms] : E
+Task E pre-empted C
+[238ms] : E
+[239ms] : E
+[240ms] : A
+Task A pre-empted E
+[241ms] : B
+Task B pre-empted A
+[242ms] : B
+[243ms] : B
+[244ms] : E
+Task E pre-empted B
+[245ms] : E
+[246ms] : E
+[247ms] : D
+Task D pre-empted E
+[248ms] : A
+Task A pre-empted D
+[249ms] : D
+Task D pre-empted A
+[250ms] : D
+[251ms] : D
+[252ms] : B
+Task B pre-empted D
+[253ms] : B
+[254ms] : B
+[255ms] : D
+Task D pre-empted B
+[256ms] : A
+Task A pre-empted D
+[257ms] : C
+Task C pre-empted A
+[258ms] : C
+[259ms] : C
+[260ms] : E
+Task E pre-empted C
+[261ms] : E
+[262ms] : E
+[263ms] : E
+[264ms] : A
+Task A pre-empted E
+[265ms] : B
+Task B pre-empted A
+[266ms] : B
+[267ms] : B
+[268ms] : D
+Task D pre-empted B
+[269ms] : D
+[270ms] : C
+Task C pre-empted D
+[271ms] : C
+[272ms] : A
+Task A pre-empted C
+[273ms] : C
+Task C pre-empted A
+[274ms] : D
+Task D pre-empted C
+[275ms] : D
+[276ms] : B
+Task B pre-empted D
+[277ms] : B
+[278ms] : B
+[279ms] : D
+Task D pre-empted B
+[280ms] : A
+Task A pre-empted D
+[281ms] : E
+Task E pre-empted A
+[282ms] : E
+[283ms] : E
+[284ms] : W
+Task W pre-empted E
+[285ms] : W
+[286ms] : W
+[287ms] : W
+[288ms] : A
+Task A pre-empted W
+[289ms] : B
+Task B pre-empted A
+[290ms] : B
+[291ms] : B
+[292ms] : C
+Task C pre-empted B
+[293ms] : C
+[294ms] : C
+[295ms] : D
+Task D pre-empted C
+[296ms] : A
+Task A pre-empted D
+[297ms] : D
+Task D pre-empted A
+[298ms] : D
+[299ms] : D
+[300ms] : B
+Task B pre-empted D
+[301ms] : B
+[302ms] : B
+[303ms] : D
+Task D pre-empted B
+[304ms] : A
+Task A pre-empted D
+[305ms] : E
+Task E pre-empted A
+[306ms] : C
+Task C pre-empted E
+[307ms] : C
+[308ms] : C
+[309ms] : E
+Task E pre-empted C
+[310ms] : E
+[311ms] : E
+[312ms] : A
+Task A pre-empted E
+[313ms] : B
+Task B pre-empted A
+[314ms] : B
+[315ms] : B
+[316ms] : E
+Task E pre-empted B
+[317ms] : E
+[318ms] : E
+[319ms] : D
+Task D pre-empted E
+[320ms] : A
+Task A pre-empted D
+[321ms] : D
+Task D pre-empted A
+[322ms] : D
+[323ms] : D
+[324ms] : B
+Task B pre-empted D
+[325ms] : B
+[326ms] : B
+[327ms] : D
+Task D pre-empted B
+[328ms] : A
+Task A pre-empted D
+[329ms] : C
+Task C pre-empted A
+[330ms] : C
+[331ms] : C
+[332ms] : E
+Task E pre-empted C
+[333ms] : E
+[334ms] : E
+[335ms] : E
+[336ms] : A
+Task A pre-empted E
+[337ms] : B
+Task B pre-empted A
+[338ms] : B
+[339ms] : B
+[340ms] : D
+Task D pre-empted B
+[341ms] : D
+[342ms] : C
+Task C pre-empted D
+[343ms] : C
+[344ms] : A
+Task A pre-empted C
+[345ms] : C
+Task C pre-empted A
+[346ms] : D
+Task D pre-empted C
+[347ms] : D
+[348ms] : B
+Task B pre-empted D
+[349ms] : B
+[350ms] : B
+[351ms] : D
+Task D pre-empted B
+[352ms] : A
+Task A pre-empted D
+[353ms] : E
+Task E pre-empted A
+[354ms] : E
+[355ms] : E
+[356ms] : W
+Task W pre-empted E
+[357ms] : W
+[358ms] : W
+[359ms] : W
+[360ms] : A
+Task A pre-empted W
+[361ms] : B
+Task B pre-empted A
+[362ms] : B
+[363ms] : B
+[364ms] : C
+Task C pre-empted B
+[365ms] : C
+[366ms] : C
+[367ms] : D
+Task D pre-empted C
+[368ms] : A
+Task A pre-empted D
+[369ms] : D
+Task D pre-empted A
+[370ms] : D
+[371ms] : D
+[372ms] : B
+Task B pre-empted D
+[373ms] : B
+[374ms] : B
+[375ms] : D
+Task D pre-empted B
+[376ms] : A
+Task A pre-empted D
+[377ms] : E
+Task E pre-empted A
+[378ms] : C
+Task C pre-empted E
+[379ms] : C
+[380ms] : C
+[381ms] : E
+Task E pre-empted C
+[382ms] : E
+[383ms] : E
+[384ms] : A
+Task A pre-empted E
+[385ms] : B
+Task B pre-empted A
+[386ms] : B
+[387ms] : B
+[388ms] : E
+Task E pre-empted B
+[389ms] : E
+[390ms] : E
+[391ms] : D
+Task D pre-empted E
+[392ms] : A
+Task A pre-empted D
+[393ms] : D
+Task D pre-empted A
+[394ms] : D
+[395ms] : D
+[396ms] : B
+Task B pre-empted D
+[397ms] : B
+[398ms] : B
+[399ms] : D
+Task D pre-empted B
+[400ms] : A
+Task A pre-empted D
+[401ms] : C
+Task C pre-empted A
+[402ms] : C
+[403ms] : C
+[404ms] : E
+Task E pre-empted C
+[405ms] : E
+[406ms] : E
+[407ms] : E
+[408ms] : A
+Task A pre-empted E
+[409ms] : B
+Task B pre-empted A
+[410ms] : B
+[411ms] : B
+[412ms] : D
+Task D pre-empted B
+[413ms] : D
+[414ms] : C
+Task C pre-empted D
+[415ms] : C
+[416ms] : A
+Task A pre-empted C
+[417ms] : C
+Task C pre-empted A
+[418ms] : D
+Task D pre-empted C
+[419ms] : D
+[420ms] : B
+Task B pre-empted D
+[421ms] : B
+[422ms] : B
+[423ms] : D
+Task D pre-empted B
+[424ms] : A
+Task A pre-empted D
+[425ms] : E
+Task E pre-empted A
+[426ms] : E
+[427ms] : E
+[428ms] : W
+Task W pre-empted E
+[429ms] : W
+[430ms] : W
+[431ms] : X
+[432ms] : A
+Task A pre-empted X
+[433ms] : B
+Task B pre-empted A
+[434ms] : B
+[435ms] : B
+[436ms] : C
+Task C pre-empted B
+[437ms] : C
+[438ms] : C
+[439ms] : D
+Task D pre-empted C
+[440ms] : A
+Task A pre-empted D
+[441ms] : D
+Task D pre-empted A
+[442ms] : D
+[443ms] : D
+[444ms] : B
+Task B pre-empted D
+[445ms] : B
+[446ms] : B
+[447ms] : D
+Task D pre-empted B
+[448ms] : A
+Task A pre-empted D
+[449ms] : E
+Task E pre-empted A
+[450ms] : C
+Task C pre-empted E
+[451ms] : C
+[452ms] : C
+[453ms] : E
+Task E pre-empted C
+[454ms] : E
+[455ms] : E
+[456ms] : A
+Task A pre-empted E
+[457ms] : B
+Task B pre-empted A
+[458ms] : B
+[459ms] : B
+[460ms] : E
+Task E pre-empted B
+[461ms] : E
+[462ms] : E
+[463ms] : D
+Task D pre-empted E
+[464ms] : A
+Task A pre-empted D
+[465ms] : D
+Task D pre-empted A
+[466ms] : D
+[467ms] : D
+[468ms] : B
+Task B pre-empted D
+[469ms] : B
+[470ms] : B
+[471ms] : D
+Task D pre-empted B
+[472ms] : A
+Task A pre-empted D
+[473ms] : C
+Task C pre-empted A
+[474ms] : C
+[475ms] : C
+[476ms] : E
+Task E pre-empted C
+[477ms] : E
+[478ms] : E
+[479ms] : E
+[480ms] : A
+Task A pre-empted E
+[481ms] : B
+Task B pre-empted A
+[482ms] : B
+[483ms] : B
+[484ms] : D
+Task D pre-empted B
+[485ms] : D
+[486ms] : C
+Task C pre-empted D
+[487ms] : C
+[488ms] : A
+Task A pre-empted C
+[489ms] : C
+Task C pre-empted A
+[490ms] : D
+Task D pre-empted C
+[491ms] : D
+[492ms] : B
+Task B pre-empted D
+[493ms] : B
+[494ms] : B
+[495ms] : D
+Task D pre-empted B
+[496ms] : A
+Task A pre-empted D
+[497ms] : E
+Task E pre-empted A
+[498ms] : E
+[499ms] : E
+[500ms] : X
+Task X pre-empted E
+[501ms] : X
+[502ms] : X
+[503ms] : X
+[504ms] : A
+Task A pre-empted X
+[505ms] : B
+Task B pre-empted A
+[506ms] : B
+[507ms] : B
+[508ms] : C
+Task C pre-empted B
+[509ms] : C
+[510ms] : C
+[511ms] : D
+Task D pre-empted C
+[512ms] : A
+Task A pre-empted D
+[513ms] : D
+Task D pre-empted A
+[514ms] : D
+[515ms] : D
+[516ms] : B
+Task B pre-empted D
+[517ms] : B
+[518ms] : B
+[519ms] : D
+Task D pre-empted B
+[520ms] : A
+Task A pre-empted D
+[521ms] : E
+Task E pre-empted A
+[522ms] : C
+Task C pre-empted E
+[523ms] : C
+[524ms] : C
+[525ms] : E
+Task E pre-empted C
+[526ms] : E
+[527ms] : E
+[528ms] : A
+Task A pre-empted E
+[529ms] : B
+Task B pre-empted A
+[530ms] : B
+[531ms] : B
+[532ms] : E
+Task E pre-empted B
+[533ms] : E
+[534ms] : E
+[535ms] : D
+Task D pre-empted E
+[536ms] : A
+Task A pre-empted D
+[537ms] : D
+Task D pre-empted A
+[538ms] : D
+[539ms] : D
+[540ms] : B
+Task B pre-empted D
+[541ms] : B
+[542ms] : B
+[543ms] : D
+Task D pre-empted B
+[544ms] : A
+Task A pre-empted D
+[545ms] : C
+Task C pre-empted A
+[546ms] : C
+[547ms] : C
+[548ms] : E
+Task E pre-empted C
+[549ms] : E
+[550ms] : E
+[551ms] : E
+[552ms] : A
+Task A pre-empted E
+[553ms] : B
+Task B pre-empted A
+[554ms] : B
+[555ms] : B
+[556ms] : D
+Task D pre-empted B
+[557ms] : D
+[558ms] : C
+Task C pre-empted D
+[559ms] : C
+[560ms] : A
+Task A pre-empted C
+[561ms] : C
+Task C pre-empted A
+[562ms] : D
+Task D pre-empted C
+[563ms] : D
+[564ms] : B
+Task B pre-empted D
+[565ms] : B
+[566ms] : B
+[567ms] : D
+Task D pre-empted B
+[568ms] : A
+Task A pre-empted D
+[569ms] : E
+Task E pre-empted A
+[570ms] : E
+[571ms] : E
+[572ms] : X
+Task X pre-empted E
+[573ms] : X
+[574ms] : X
+[575ms] : X
+[576ms] : A
+Task A pre-empted X
+[577ms] : B
+Task B pre-empted A
+[578ms] : B
+[579ms] : B
+[580ms] : C
+Task C pre-empted B
+[581ms] : C
+[582ms] : C
+[583ms] : D
+Task D pre-empted C
+[584ms] : A
+Task A pre-empted D
+[585ms] : D
+Task D pre-empted A
+[586ms] : D
+[587ms] : D
+[588ms] : B
+Task B pre-empted D
+[589ms] : B
+[590ms] : B
+[591ms] : D
+Task D pre-empted B
+[592ms] : A
+Task A pre-empted D
+[593ms] : E
+Task E pre-empted A
+[594ms] : C
+Task C pre-empted E
+[595ms] : C
+[596ms] : C
+[597ms] : E
+Task E pre-empted C
+[598ms] : E
+[599ms] : E
+[600ms] : A
+Task A pre-empted E
+[601ms] : B
+Task B pre-empted A
+[602ms] : B
+[603ms] : B
+[604ms] : E
+Task E pre-empted B
+[605ms] : E
+[606ms] : E
+[607ms] : D
+Task D pre-empted E
+[608ms] : A
+Task A pre-empted D
+[609ms] : D
+Task D pre-empted A
+[610ms] : D
+[611ms] : D
+[612ms] : B
+Task B pre-empted D
+[613ms] : B
+[614ms] : B
+[615ms] : D
+Task D pre-empted B
+[616ms] : A
+Task A pre-empted D
+[617ms] : C
+Task C pre-empted A
+[618ms] : C
+[619ms] : C
+[620ms] : E
+Task E pre-empted C
+[621ms] : E
+[622ms] : E
+[623ms] : E
+[624ms] : A
+Task A pre-empted E
+[625ms] : B
+Task B pre-empted A
+[626ms] : B
+[627ms] : B
+[628ms] : D
+Task D pre-empted B
+[629ms] : D
+[630ms] : C
+Task C pre-empted D
+[631ms] : C
+[632ms] : A
+Task A pre-empted C
+[633ms] : C
+Task C pre-empted A
+[634ms] : D
+Task D pre-empted C
+[635ms] : D
+[636ms] : B
+Task B pre-empted D
+[637ms] : B
+[638ms] : B
+[639ms] : D
+Task D pre-empted B
+[640ms] : A
+Task A pre-empted D
+[641ms] : E
+Task E pre-empted A
+[642ms] : E
+[643ms] : E
+[644ms] : X
+Task X pre-empted E
+[645ms] : Y
+[646ms] : Y
+[647ms] : Y
+[648ms] : A
+Task A pre-empted Y
+[649ms] : B
+Task B pre-empted A
+[650ms] : B
+[651ms] : B
+[652ms] : C
+Task C pre-empted B
+[653ms] : C
+[654ms] : C
+[655ms] : D
+Task D pre-empted C
+[656ms] : A
+Task A pre-empted D
+[657ms] : D
+Task D pre-empted A
+[658ms] : D
+[659ms] : D
+[660ms] : B
+Task B pre-empted D
+[661ms] : B
+[662ms] : B
+[663ms] : D
+Task D pre-empted B
+[664ms] : A
+Task A pre-empted D
+[665ms] : E
+Task E pre-empted A
+[666ms] : C
+Task C pre-empted E
+[667ms] : C
+[668ms] : C
+[669ms] : E
+Task E pre-empted C
+[670ms] : E
+[671ms] : E
+[672ms] : A
+Task A pre-empted E
+[673ms] : B
+Task B pre-empted A
+[674ms] : B
+[675ms] : B
+[676ms] : E
+Task E pre-empted B
+[677ms] : E
+[678ms] : E
+[679ms] : D
+Task D pre-empted E
+[680ms] : A
+Task A pre-empted D
+[681ms] : D
+Task D pre-empted A
+[682ms] : D
+[683ms] : D
+[684ms] : B
+Task B pre-empted D
+[685ms] : B
+[686ms] : B
+[687ms] : D
+Task D pre-empted B
+[688ms] : A
+Task A pre-empted D
+[689ms] : C
+Task C pre-empted A
+[690ms] : C
+[691ms] : C
+[692ms] : E
+Task E pre-empted C
+[693ms] : E
+[694ms] : E
+[695ms] : E
+[696ms] : A
+Task A pre-empted E
+[697ms] : B
+Task B pre-empted A
+[698ms] : B
+[699ms] : B
+[700ms] : D
+Task D pre-empted B
+[701ms] : D
+[702ms] : C
+Task C pre-empted D
+[703ms] : C
+[704ms] : A
+Task A pre-empted C
+[705ms] : C
+Task C pre-empted A
+[706ms] : D
+Task D pre-empted C
+[707ms] : D
+[708ms] : B
+Task B pre-empted D
+[709ms] : B
+[710ms] : B
+[711ms] : D
+Task D pre-empted B
+[712ms] : A
+Task A pre-empted D
+[713ms] : E
+Task E pre-empted A
+[714ms] : E
+[715ms] : E
+[716ms] : Y
+Task Y pre-empted E
+[717ms] : Y
+[718ms] : Y
+[719ms] : Y
+[720ms] : A
+Task A pre-empted Y
+[721ms] : B
+Task B pre-empted A
+[722ms] : B
+[723ms] : B
+[724ms] : C
+Task C pre-empted B
+[725ms] : C
+[726ms] : C
+[727ms] : D
+Task D pre-empted C
+[728ms] : A
+Task A pre-empted D
+[729ms] : D
+Task D pre-empted A
+[730ms] : D
+[731ms] : D
+[732ms] : B
+Task B pre-empted D
+[733ms] : B
+[734ms] : B
+[735ms] : D
+Task D pre-empted B
+[736ms] : A
+Task A pre-empted D
+[737ms] : E
+Task E pre-empted A
+[738ms] : C
+Task C pre-empted E
+[739ms] : C
+[740ms] : C
+[741ms] : E
+Task E pre-empted C
+[742ms] : E
+[743ms] : E
+[744ms] : A
+Task A pre-empted E
+[745ms] : B
+Task B pre-empted A
+[746ms] : B
+[747ms] : B
+[748ms] : E
+Task E pre-empted B
+[749ms] : E
+[750ms] : E
+[751ms] : Y
+Task Y pre-empted E
+[752ms] : A
+Task A pre-empted Y
+[753ms] : Y
+Task Y pre-empted A
+[754ms] : Y
+[755ms] : D
+[756ms] : B
+Task B pre-empted D
+[757ms] : B
+[758ms] : B
+[759ms] : D
+Task D pre-empted B
+[760ms] : A
+Task A pre-empted D
+[761ms] : D
+Task D pre-empted A
+[762ms] : D
+[763ms] : D
+[764ms] : C
+Task C pre-empted D
+[765ms] : C
+[766ms] : C
+[767ms] : Z
+Task Z pre-empted C
+[768ms] : A
+Task A pre-empted Z
+[769ms] : B
+Task B pre-empted A
+[770ms] : B
+[771ms] : B
+[772ms] : Z
+Task Z pre-empted B
+[773ms] : Z
+[774ms] : Z
+[775ms] : Z
+[776ms] : Z
+[777ms] : Z
+[778ms] : Z
+[779ms] : Z
+Task Z missed deadline
+Task Z missed deadline
+[780ms] : Z
+[781ms] : Z
+[782ms] : Z
+[783ms] : Z
+Task A missed deadline
+[784ms] : Z
+[785ms] : Z
+[786ms] : Z
+[787ms] : Z
+[788ms] : Z
+[789ms] : Z
+[790ms] : Z
+[791ms] : Z
+Task B missed deadline
+Task C missed deadline
+Task D missed deadline
+Task E missed deadline
+[792ms] : Z
+[793ms] : Z
+[794ms] : Z
+[795ms] : Z
+[796ms] : Z
+[797ms] : Z
+[798ms] : Z
+[799ms] : Z
+[800ms] : Z
+[801ms] : A
+[802ms] : A
+[803ms] : B
+Task B pre-empted A
+[804ms] : B
+[805ms] : B
+[806ms] : C
+Task C pre-empted B
+[807ms] : C
+[808ms] : C
+[809ms] : D
+Task D pre-empted C
+Task C missed deadline
+[810ms] : D
+[811ms] : D
+[812ms] : D
+[813ms] : D
+[814ms] : E
+Task E pre-empted D
+[815ms] : E
+Task D missed deadline
+[816ms] : E
+[817ms] : E
+[818ms] : E
+[819ms] : E
+[820ms] : E
+[821ms] : A
+Task A pre-empted E
+[822ms] : B
+Task B pre-empted A
+[823ms] : B
+[824ms] : B
+[825ms] : A
+Task A pre-empted B
+[826ms] : C
+Task C pre-empted A
+[827ms] : C
+Task E missed deadline
+[828ms] : C
+[829ms] : A
+Task A pre-empted C
+[830ms] : B
+Task B pre-empted A
+[831ms] : B
+[832ms] : B
+[833ms] : D
+Task D pre-empted B
+[834ms] : D
+[835ms] : D
+[836ms] : D
+[837ms] : D
+[838ms] : A
+Task A pre-empted D
+[839ms] : B
+Task B pre-empted A
+Task D missed deadline
+[840ms] : B
+[841ms] : B
+[842ms] : C
+Task C pre-empted B
+[843ms] : C
+[844ms] : C
+[845ms] : E
+Task E pre-empted C
+Task C missed deadline
+[846ms] : E
+[847ms] : E
+[848ms] : E
+[849ms] : E
+[850ms] : E
+[851ms] : E
+[852ms] : A
+Task A pre-empted E
+[853ms] : A
+[854ms] : B
+Task B pre-empted A
+[855ms] : B
+[856ms] : B
+[857ms] : D
+Task D pre-empted B
+[858ms] : D
+[859ms] : D
+[860ms] : D
+[861ms] : D
+[862ms] : C
+Task C pre-empted D
+[863ms] : C
+Task D missed deadline
+Task E missed deadline
+[864ms] : C
+[865ms] : A
+Task A pre-empted C
+[866ms] : B
+Task B pre-empted A
+[867ms] : B
+[868ms] : B
+[869ms] : A
+Task A pre-empted B
+[870ms] : A
+[871ms] : B
+Task B pre-empted A
+Task A missed deadline
+[872ms] : B
+[873ms] : B
+[874ms] : C
+Task C pre-empted B
+[875ms] : C
+Task B missed deadline
+[876ms] : C
+[877ms] : D
+Task D pre-empted C
+[878ms] : D
+[879ms] : D
+[880ms] : D
+[881ms] : D
+Task C missed deadline
+[882ms] : E
+Task E pre-empted D
+[883ms] : E
+[884ms] : E
+[885ms] : E
+[886ms] : E
+[887ms] : E
+Task D missed deadline
+[888ms] : E
+[889ms] : A
+Task A pre-empted E
+[890ms] : B
+Task B pre-empted A
+[891ms] : B
+[892ms] : B
+[893ms] : A
+Task A pre-empted B
+[894ms] : C
+Task C pre-empted A
+[895ms] : C
+[896ms] : C
+[897ms] : A
+Task A pre-empted C
+[898ms] : B
+Task B pre-empted A
+[899ms] : B
+Task C missed deadline
+Task E missed deadline
+[900ms] : B
+[901ms] : D
+Task D pre-empted B
+[902ms] : D
+[903ms] : D
+[904ms] : D
+[905ms] : D
+[906ms] : A
+Task A pre-empted D
+[907ms] : B
+Task B pre-empted A
+[908ms] : B
+[909ms] : B
+[910ms] : C
+Task C pre-empted B
+[911ms] : C
+Task B missed deadline
+Task D missed deadline
+[912ms] : C
+[913ms] : E
+Task E pre-empted C
+[914ms] : E
+[915ms] : E
+[916ms] : E
+[917ms] : E
+Task C missed deadline
+[918ms] : E
+[919ms] : E
+[920ms] : A
+Task A pre-empted E
+[921ms] : A
+[922ms] : B
+Task B pre-empted A
+[923ms] : B
+[924ms] : B
+[925ms] : D
+Task D pre-empted B
+[926ms] : D
+[927ms] : D
+[928ms] : D
+[929ms] : D
+[930ms] : C
+Task C pre-empted D
+[931ms] : C
+[932ms] : C
+[933ms] : A
+Task A pre-empted C
+[934ms] : B
+Task B pre-empted A
+[935ms] : B
+Task C missed deadline
+Task D missed deadline
+Task E missed deadline
+[936ms] : B
+[937ms] : A
+Task A pre-empted B
+[938ms] : A
+[939ms] : B
+Task B pre-empted A
+[940ms] : B
+[941ms] : B
+[942ms] : C
+Task C pre-empted B
+[943ms] : C
+Task A missed deadline
+[944ms] : C
+[945ms] : D
+Task D pre-empted C
+[946ms] : D
+[947ms] : D
+Task B missed deadline
+[948ms] : D
+[949ms] : D
+[950ms] : E
+Task E pre-empted D
+[951ms] : E
+[952ms] : E
+[953ms] : E
+Task C missed deadline
+[954ms] : E
+[955ms] : E
+[956ms] : E
+[957ms] : A
+Task A pre-empted E
+[958ms] : B
+Task B pre-empted A
+[959ms] : B
+Task D missed deadline
+[960ms] : B
+[961ms] : A
+Task A pre-empted B
+[962ms] : C
+Task C pre-empted A
+[963ms] : C
+[964ms] : C
+[965ms] : A
+Task A pre-empted C
+[966ms] : B
+Task B pre-empted A
+[967ms] : B
+Task A missed deadline
+[968ms] : B
+[969ms] : D
+Task D pre-empted B
+[970ms] : D
+[971ms] : D
+Task B missed deadline
+Task C missed deadline
+Task E missed deadline
+[972ms] : D
+[973ms] : D
+[974ms] : A
+Task A pre-empted D
+[975ms] : B
+Task B pre-empted A
+Task A missed deadline
+[976ms] : B
+[977ms] : B
+[978ms] : C
+Task C pre-empted B
+[979ms] : C
+[980ms] : C
+[981ms] : E
+Task E pre-empted C
+[982ms] : E
+[983ms] : E
+Task B missed deadline
+Task D missed deadline
+[984ms] : E
+[985ms] : E
+[986ms] : E
+[987ms] : E
+[988ms] : A
+Task A pre-empted E
+[989ms] : A
+Task C missed deadline
+[990ms] : B
+Task B pre-empted A
+[991ms] : B
+Task A missed deadline
+[992ms] : B
+[993ms] : D
+Task D pre-empted B
+[994ms] : D
+[995ms] : D
+Task B missed deadline
+[996ms] : D
+[997ms] : D
+[998ms] : C
+Task C pre-empted D
+[999ms] : C
+ End of Program Report
+_______________________________________
+# RMA Deadlines Missed: 19
+# RMA Tasks Preempted:  484
+# EDF Deadlines Missed: 40
+# EDF Tasks Preempted:  438
