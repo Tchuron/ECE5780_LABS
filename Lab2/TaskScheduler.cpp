@@ -47,7 +47,27 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	else{ // Print an error message if the input file did not open correctly
 		std::cout << "input file did not open" << std::endl;
 	}
+	// Run Schedules and print results
+	std::cout << "running RMA schedule: " << std::endl;
+	ts->runScheduleRMA();
+	std::cout << "running EDF schedule: " << std::endl;
+	ts -> runScheduleEDF();
+	
+	//print report on the number of missed deadlines and preemptions
+	EdfNumDeadlineMiss = ts -> getEDFMissed();
+	EdfNumPreemptions = ts -> getEdfPreem();
+	RmaNumDeadlineMiss = ts -> getRmaMissed();
+	RmaNumPreemptions = ts -> getRmaPreem();
+	//Print summary report to terminal 
+	std::cout << "End of Program Report" << std::endl;
+	std::cout << "_______________________________________"<< std::endl;
+	std::cout << "# RMA Deadlines Missed: " << RmaNumDeadlineMiss << std::endl;
+	std::cout << "# RMA Tasks Preempted:  " << RmaNumPreemptions << std::endl;
+	std::cout << "# EDF Deadlines Missed: " << EdfNumDeadlineMiss << std::endl;
+	std::cout << "# EDF Tasks Preempted:  " << EdfNumPreemptions << std::endl;
 	fileInStream.close();
+	fileOutStream.close();
+	
 }
 
 void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
