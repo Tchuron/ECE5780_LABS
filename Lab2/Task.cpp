@@ -18,6 +18,7 @@ Task::Task(char id, int execTime, int deadline, bool periodic)
     mReleaseTime = deadline;
     mDeadline = deadline + 500; // implicit 500ms deadline
   }
+  //std::cout << "constructor:" << mID << ", execT:" << mExecTime << ", execAl:" << mExecAlready << ", dedln:" << mDeadline << ", rel:" << mReleaseTime << ", periodic:" << mPeriodic << std::endl;
 }
 
 Task::Task(Task* other)
@@ -26,7 +27,9 @@ Task::Task(Task* other)
   mExecTime = other->getExecTime();
   mDeadline = other->getDeadline();
   mExecAlready = other->getExecAlready();
+  mReleaseTime = other->getReleaseTime();
   mPeriodic = other->isPeriodic();
+  //std::cout << "copy constructor " << mID << std::endl;
 }
 
 bool Task::operator==(const Task& other)
@@ -88,8 +91,16 @@ char Task::getID()
   return mID;
 }
 
+int Task::getReleaseTime()
+{
+  return mReleaseTime;
+}
+
 bool Task::isReady(int currentTime)
 {
+  //bool output = ((mReleaseTime <= currentTime) && (mExecTime > mExecAlready));
+  //std::cout << mID << " ready@" << currentTime << ":" << output << std::endl;
+  //std::cout << "vals:" << mID << ", execT:" << mExecTime << ", execAl:" << mExecAlready << ", dedln:" << mDeadline << ", rel:" << mReleaseTime << ", periodic:" << mPeriodic << std::endl;
   return (mReleaseTime <= currentTime && mExecTime > mExecAlready);
 }
 

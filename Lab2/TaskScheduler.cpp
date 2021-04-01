@@ -37,11 +37,14 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 				std::cout << "number of aperiodic tasks: " << numAperiodic << std::endl;
 				aperiodicSection = true;
 			}
+      else
+      {
 			fileInStream >> execTime >> tempString >> period; 
 			std::cout << "Created new task. ID: " << idName << " ExecTime: " << execTime << " Period: " << period << std::endl;
 			mLoadedTasks.push_back(std::make_shared<Task>(idName[0], execTime, period, !aperiodicSection));
 			//TaskEDF newTask = new TaskEDF(id, execTime, period);
 			//mTasks.push(newTask);
+      }
 		}
 	}
 	else{ // Print an error message if the input file did not open correctly
