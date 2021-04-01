@@ -48,12 +48,13 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 		std::cout << "input file did not open" << std::endl;
 	}
 	// Run Schedules and print results
-	std::cout << "running EDF schedule: " << std::endl;
-	mScheduleOutput << "running EDF schedule: " << std::endl;
-	this -> runScheduleEDF();
 	std::cout << "running RMA schedule: " << std::endl;
 	mScheduleOutput << "running RMA schedule: " << std::endl;
 	this ->runScheduleRMA();
+	
+	std::cout << "running EDF schedule: " << std::endl;
+	mScheduleOutput << "running EDF schedule: " << std::endl;
+	this -> runScheduleEDF();
 
 
 	
