@@ -126,11 +126,13 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 
     if (bestPeriodicTask) // if we found a ready periodic task
     {
-      bestPeriodicTask->execute(mTime);
+      bool temp = bestPeriodicTask->execute(mTime, &mScheduleOutput);
+      if (temp) rmaNumPreemptions++;
     }
     else if (bestAperiodicTask)
     {
-      bestAperiodicTask->execute(mTime);
+      bool temp = bestAperiodicTask->execute(mTime, &mScheduleOutput);
+      if (temp) rmaNumPreemptions++;
     }
     else
     {
@@ -180,7 +182,8 @@ void TaskScheduler::runScheduleEDF()
 		// if we found a readytask
 		if (bestTask) // if we found a ready periodic task
 		{
-			bestTask->execute(mTime);
+			bool temp = bestTask->execute(mTime, &mScheduleOutput);
+      if (temp) edfNumPreemptions++;
 		}
 		else
 		{
