@@ -9,7 +9,7 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 {
 	// Open Files
 	std::ifstream fileInStream (inFile);;
-	std::ofstream  fileOutStream (outFile);
+	mScheduleOutput.open(outFile);
 	
 	int numTasks;
 	int numAperiodic;
@@ -49,10 +49,10 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	}
 	// Run Schedules and print results
 	std::cout << "running RMA schedule: " << std::endl;
-	fileOutStream << "running RMA schedule: " << std::endl;
+	mScheduleOutput << "running RMA schedule: " << std::endl;
 	this ->runScheduleRMA();
 	std::cout << "running EDF schedule: " << std::endl;
-	fileOutStream << "running EDF schedule: " << std::endl;
+	mScheduleOutput << "running EDF schedule: " << std::endl;
 	this -> runScheduleEDF();
 	
 	//print report on the number of missed deadlines and preemptions
@@ -68,12 +68,12 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	std::cout << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
 	std::cout << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
 	// Print summary report to output file
-	fileOutStream << " End of Program Report" << std::endl;
-	fileOutStream << "_______________________________________"<< std::endl;
-	fileOutStream << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
-	fileOutStream << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
-	fileOutStream << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
-	fileOutStream << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
+	mScheduleOutput << " End of Program Report" << std::endl;
+	mScheduleOutput << "_______________________________________"<< std::endl;
+	mScheduleOutput << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
+	mScheduleOutput << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
+	mScheduleOutput << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
+	mScheduleOutput << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
 	
 	//Print sum
 	fileInStream.close();
@@ -204,5 +204,9 @@ int TaskScheduler::getRmaPreem(){
 	return rmaNumPreemptions;
 }
 
+	TaskScheduler::~TaskScheduler(){
+		//close output file
+		mScheduleOutput.close();
+	}
 	
 

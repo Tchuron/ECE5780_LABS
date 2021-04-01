@@ -15,6 +15,7 @@ class TaskScheduler
 	int getEdfPreem();
 	int getRmaMissed();
 	int getRmaPreem();
+	~TaskScheduler();
   private:
     int mTimeLimit; // the simulation time
     int mTime = 0;
