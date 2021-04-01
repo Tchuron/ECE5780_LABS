@@ -1,6 +1,7 @@
 #include "Task.hpp"
 
 //std::shared_ptr<Task> Task::mPreviouslyExecuted;
+Task* Task::mPreviouslyExecuted = nullptr;
 
 Task::Task(char id, int execTime, int deadline, bool periodic)
 {

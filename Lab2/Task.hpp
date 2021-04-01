@@ -29,5 +29,5 @@ class Task
     int mReleaseTime;
     int mDeadline;
     bool mPeriodic;
-    Task* mPreviouslyExecuted = nullptr;
+    static Task* mPreviouslyExecuted;
 };
