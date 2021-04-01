@@ -91,6 +91,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
       {
         if (rmaTasks[i]->isReady(mTime))
           std::cout << "Task " << rmaTasks[i]->getID() << " missed deadline" << std::endl;
+		  RmaNumDeadlineMiss++;
       }
     }
 
@@ -115,6 +116,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 void TaskScheduler::runScheduleEDF()
 {
 	std::vector<std::shared_ptr<Task>> edfTasks = {};
+
 	
 	for (int i = 0; i < mLoadedTasks.size(); i++) // Copy the tasks into the two queues
 	{	
@@ -138,8 +140,10 @@ void TaskScheduler::runScheduleEDF()
 			}
 			if (edfTasks[i]->getDeadline() == mTime)// Check for late tasks
 			{
-				if (edfTasks[i]->isReady(mTime))
+				if (edfTasks[i]->isReady(mTime)){
 				std::cout << "Task " << edfTasks[i]->getID() << " missed deadline" << std::endl;
+				EdfnumDeadlineMiss++; //increment the number of deadlines missed
+				}
 			}
 
 
@@ -156,4 +160,21 @@ void TaskScheduler::runScheduleEDF()
 		mTime++;
 	}
 	std::cout << "Nothing here" << std::endl;
+	std::cout << 
 }
+
+int TaskScheduler::getEdfMissed(){
+	return EdfNumDeadlineMiss;
+}
+int TaskScheduler::getEdfPreem(){
+	return EdfNumPreemptions;
+}
+int TaskScheduler::getRmaMissed(){
+	return RmaNumDeadlineMiss;
+}
+int TaskScheduler::getRmaPreem(){
+	return RmaNumPreemptions;
+}
+
+	
+
