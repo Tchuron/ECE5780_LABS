@@ -27,23 +27,7 @@ int main(int argc, char** argv)
 	std::string inPath = argv[1];
 	std::string outPath = argv[2];
 	TaskScheduler* ts = new TaskScheduler(inPath, outPath); //pass file names to Task Scheduler
-	cout << "running RMA schedule: " << endl;
-	ts->runScheduleRMA();
-	cout << "running EDF schedule: " << endl;
-	ts -> runScheduleEDF();
-	
-	//print report on the number of missed deadlines and preemptions
-	EdfNumDeadlineMiss = ts -> getEDFMissed();
-	EdfNumPreemptions = ts -> getEdfPreem();
-	RmaNumDeadlineMiss = ts -> getRmaMissed();
-	RmaNumPreemptions = ts -> getRmaPreem();
-	
-	cout << "End of Program Report" << endl;
-	cout << "_______________________________________"<< endl;
-	cout << "# RMA Deadlines Missed: " << RmaNumDeadlineMiss << endl;
-	cout << "# RMA Tasks Preempted:  " << RmaNumPreemptions << endl;
-	cout << "# EDF Deadlines Missed: " << EdfNumDeadlineMiss << endl;
-	cout << "# EDF Tasks Preempted:  " << EdfNumPreemptions << endl;
+
 	
 	return 1;
 } // End of main function
