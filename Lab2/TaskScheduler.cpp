@@ -48,12 +48,14 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 		std::cout << "input file did not open" << std::endl;
 	}
 	// Run Schedules and print results
-	std::cout << "running RMA schedule: " << std::endl;
-	mScheduleOutput << "running RMA schedule: " << std::endl;
-	this ->runScheduleRMA();
 	std::cout << "running EDF schedule: " << std::endl;
 	mScheduleOutput << "running EDF schedule: " << std::endl;
 	this -> runScheduleEDF();
+	std::cout << "running RMA schedule: " << std::endl;
+	mScheduleOutput << "running RMA schedule: " << std::endl;
+	this ->runScheduleRMA();
+
+
 	
 	//print report on the number of missed deadlines and preemptions
 	edfNumDeadlineMiss = this -> getEdfMissed();
@@ -83,6 +85,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 {
   std::vector<std::shared_ptr<Task>> rmaTasks = {};
   // copy the tasks into the two queues
+  
   for (int i = 0; i < mLoadedTasks.size(); i++)
   {
     std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
@@ -120,6 +123,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
       {
         if (rmaTasks[i]->isReady(mTime))
           std::cout << "Task " << rmaTasks[i]->getID() << " missed deadline" << std::endl;
+		  mScheduleOutput << "Task " << rmaTasks[i]->getID() << " missed deadline" << std::endl;
 		  rmaNumDeadlineMiss++;
       }
     }
@@ -135,6 +139,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
     else
     {
       std::cout << "[" << mTime << "ms] : NONE" << std::endl;
+	  mScheduleOutput << "[" << mTime << "ms] : NONE" << std::endl;
     }
     mTime++;
   }
@@ -171,6 +176,7 @@ void TaskScheduler::runScheduleEDF()
 			{
 				if (edfTasks[i]->isReady(mTime)){
 				std::cout << "Task " << edfTasks[i]->getID() << " missed deadline" << std::endl;
+				mScheduleOutput << "Task " << edfTasks[i]->getID() << " missed deadline" << std::endl;
 				edfNumDeadlineMiss++; //increment the number of deadlines missed
 				}
 			}
@@ -183,8 +189,9 @@ void TaskScheduler::runScheduleEDF()
 			bestTask->execute(mTime);
 		}
 		else
-		{
+		{	//no task being executed. Print to output file
 			std::cout << "[" << mTime << "ms] : NONE" << std::endl;
+			mScheduleOutput << "[" << mTime << "ms] : NONE" << std::endl;
 		}
 		mTime++;
 	}

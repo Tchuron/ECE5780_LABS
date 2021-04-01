@@ -1,8 +1,43 @@
-running RMA schedule: 
 running EDF schedule: 
+[395ms] : NONE
+[396ms] : NONE
+[397ms] : NONE
+[398ms] : NONE
+[399ms] : NONE
+[495ms] : NONE
+[496ms] : NONE
+[497ms] : NONE
+[498ms] : NONE
+[499ms] : NONE
+[575ms] : NONE
+[576ms] : NONE
+[577ms] : NONE
+[578ms] : NONE
+[579ms] : NONE
+[580ms] : NONE
+[581ms] : NONE
+[582ms] : NONE
+[583ms] : NONE
+[584ms] : NONE
+[585ms] : NONE
+[586ms] : NONE
+[587ms] : NONE
+[588ms] : NONE
+[589ms] : NONE
+[590ms] : NONE
+[591ms] : NONE
+[592ms] : NONE
+[593ms] : NONE
+[594ms] : NONE
+[595ms] : NONE
+[596ms] : NONE
+[597ms] : NONE
+[598ms] : NONE
+[599ms] : NONE
+running RMA schedule: 
  End of Program Report
 _______________________________________
-# RMA Deadlines Missed: 1
+# RMA Deadlines Missed: 0
 # RMA Tasks Preempted:  0
 # EDF Deadlines Missed: 0
 # EDF Tasks Preempted:  0
