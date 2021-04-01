@@ -11,6 +11,7 @@ class TaskScheduler
     TaskScheduler(std::string inFile, std::string outFile);
     void runScheduleRMA();
     void runScheduleEDF();
+	void printReport();
 	int getEdfMissed();
 	int getEdfPreem();
 	int getRmaMissed();

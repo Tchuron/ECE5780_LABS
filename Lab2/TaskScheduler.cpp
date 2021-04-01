@@ -47,38 +47,6 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	else{ // Print an error message if the input file did not open correctly
 		std::cout << "input file did not open" << std::endl;
 	}
-	// Run Schedules and print results
-	std::cout << "running RMA schedule: " << std::endl;
-	mScheduleOutput << "running RMA schedule: " << std::endl;
-	this ->runScheduleRMA();
-	
-	std::cout << "running EDF schedule: " << std::endl;
-	mScheduleOutput << "running EDF schedule: " << std::endl;
-	this -> runScheduleEDF();
-
-
-	
-	//print report on the number of missed deadlines and preemptions
-	edfNumDeadlineMiss = this -> getEdfMissed();
-	edfNumPreemptions  = this -> getEdfPreem();
-	rmaNumDeadlineMiss = this -> getRmaMissed();
-	rmaNumPreemptions  = this -> getRmaPreem();
-	// Print summary report to terminal 
-	std::cout << " End of Program Report" << std::endl;
-	std::cout << "_______________________________________"<< std::endl;
-	std::cout << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
-	std::cout << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
-	std::cout << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
-	std::cout << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
-	// Print summary report to output file
-	mScheduleOutput << " End of Program Report" << std::endl;
-	mScheduleOutput << "_______________________________________"<< std::endl;
-	mScheduleOutput << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
-	mScheduleOutput << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
-	mScheduleOutput << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
-	mScheduleOutput << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
-	
-	//Print sum
 	fileInStream.close();
 }
 
@@ -92,6 +60,8 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
     std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
     rmaTasks.push_back(copyTask);
   }
+  	std::cout << "running RMA schedule: " << std::endl;
+	mScheduleOutput << "running RMA schedule: " << std::endl;
 
   while (mTime < mTimeLimit && rmaTasks.size() > 0)
   {
@@ -159,8 +129,9 @@ void TaskScheduler::runScheduleEDF()
 	{	
 		std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
 		edfTasks.push_back(copyTask);
-	}
-	
+	}	
+	std::cout << "running EDF schedule: " << std::endl;
+	mScheduleOutput << "running EDF schedule: " << std::endl;
 	while (mTime < mTimeLimit && edfTasks.size() > 0)
 	{
 		// Check which task is ready and has the closest deadline.
@@ -214,10 +185,33 @@ int TaskScheduler::getRmaMissed(){
 int TaskScheduler::getRmaPreem(){
 	return rmaNumPreemptions;
 }
+void TaskScheduler::printReport(){
+	//print report on the number of missed deadlines and preemptions
+	edfNumDeadlineMiss = this -> getEdfMissed();
+	edfNumPreemptions  = this -> getEdfPreem();
+	rmaNumDeadlineMiss = this -> getRmaMissed();
+	rmaNumPreemptions  = this -> getRmaPreem();
+	// Print summary report to terminal 
+	std::cout << " End of Program Report" << std::endl;
+	std::cout << "_______________________________________"<< std::endl;
+	std::cout << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
+	std::cout << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
+	std::cout << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
+	std::cout << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
+	// Print summary report to output file
+	mScheduleOutput << " End of Program Report" << std::endl;
+	mScheduleOutput << "_______________________________________"<< std::endl;
+	mScheduleOutput << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
+	mScheduleOutput << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
+	mScheduleOutput << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
+	mScheduleOutput << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
+}
 
-	TaskScheduler::~TaskScheduler(){
-		//close output file
-		mScheduleOutput.close();
-	}
+
+TaskScheduler::~TaskScheduler(){
+
+	//close output file
+	mScheduleOutput.close();
+}
 	
 
