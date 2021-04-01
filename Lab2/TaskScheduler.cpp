@@ -52,6 +52,7 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 
 void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 {
+	mTime = 0;
   std::vector<std::shared_ptr<Task>> rmaTasks = {};
   // copy the tasks into the two queues
   
@@ -122,6 +123,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 //////////////////////////////////
 void TaskScheduler::runScheduleEDF()
 {
+	mTime = 0;
 	std::vector<std::shared_ptr<Task>> edfTasks = {};
 
 	
