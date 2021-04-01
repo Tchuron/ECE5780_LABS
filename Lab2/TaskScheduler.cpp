@@ -61,8 +61,8 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
     std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
     rmaTasks.push_back(copyTask);
   }
-  	std::cout << "running RMA schedule: " << std::endl;
-	mScheduleOutput << "running RMA schedule: " << std::endl;
+  	std::cout << std::endl <<"running RMA schedule: " << std::endl << std::endl;
+	mScheduleOutput << std::endl << "running RMA schedule: " << std::endl << std::endl;
 
   while (mTime < mTimeLimit && rmaTasks.size() > 0)
   {
@@ -132,8 +132,8 @@ void TaskScheduler::runScheduleEDF()
 		std::shared_ptr<Task> copyTask = std::make_shared<Task>(mLoadedTasks[i].get());
 		edfTasks.push_back(copyTask);
 	}	
-	std::cout << "running EDF schedule: " << std::endl;
-	mScheduleOutput << "running EDF schedule: " << std::endl;
+	std::cout << std::endl <<"running EDF schedule: " << std::endl << std::endl;
+	mScheduleOutput << std::endl << "running EDF schedule: " << std::endl << std::endl;
 	while (mTime < mTimeLimit && edfTasks.size() > 0)
 	{
 		// Check which task is ready and has the closest deadline.
@@ -163,7 +163,7 @@ void TaskScheduler::runScheduleEDF()
 		if (bestTask) // if we found a ready periodic task
 		{
 			bool temp = bestTask->execute(mTime, &mScheduleOutput);
-      if (temp) edfNumPreemptions++;
+			if (temp) edfNumPreemptions++;
 		}
 		else
 		{	//no task being executed. Print to output file
