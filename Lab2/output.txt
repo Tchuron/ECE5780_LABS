@@ -1,0 +1,8 @@
+running RMA schedule: 
+running EDF schedule: 
+ End of Program Report
+_______________________________________
+# RMA Deadlines Missed: 1
+# RMA Tasks Preempted:  0
+# EDF Deadlines Missed: 0
+# EDF Tasks Preempted:  0

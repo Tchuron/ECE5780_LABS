@@ -49,27 +49,34 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	}
 	// Run Schedules and print results
 	std::cout << "running RMA schedule: " << std::endl;
-	ts->runScheduleRMA();
+	fileOutStream << "running RMA schedule: " << std::endl;
+	this ->runScheduleRMA();
 	std::cout << "running EDF schedule: " << std::endl;
-	ts -> runScheduleEDF();
+	fileOutStream << "running EDF schedule: " << std::endl;
+	this -> runScheduleEDF();
 	
 	//print report on the number of missed deadlines and preemptions
-	EdfNumDeadlineMiss = ts -> getEDFMissed();
-	EdfNumPreemptions = ts -> getEdfPreem();
-	RmaNumDeadlineMiss = ts -> getRmaMissed();
-	RmaNumPreemptions = ts -> getRmaPreem();
-	//Print summary report to terminal 
-	std::cout << "End of Program Report" << std::endl;
+	edfNumDeadlineMiss = this -> getEdfMissed();
+	edfNumPreemptions  = this -> getEdfPreem();
+	rmaNumDeadlineMiss = this -> getRmaMissed();
+	rmaNumPreemptions  = this -> getRmaPreem();
+	// Print summary report to terminal 
+	std::cout << " End of Program Report" << std::endl;
 	std::cout << "_______________________________________"<< std::endl;
-	std::cout << "# RMA Deadlines Missed: " << RmaNumDeadlineMiss << std::endl;
-	std::cout << "# RMA Tasks Preempted:  " << RmaNumPreemptions << std::endl;
-	std::cout << "# EDF Deadlines Missed: " << EdfNumDeadlineMiss << std::endl;
-	std::cout << "# EDF Tasks Preempted:  " << EdfNumPreemptions << std::endl;
+	std::cout << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
+	std::cout << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
+	std::cout << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
+	std::cout << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
+	// Print summary report to output file
+	fileOutStream << " End of Program Report" << std::endl;
+	fileOutStream << "_______________________________________"<< std::endl;
+	fileOutStream << "# RMA Deadlines Missed: " << rmaNumDeadlineMiss << std::endl;
+	fileOutStream << "# RMA Tasks Preempted:  " << rmaNumPreemptions << std::endl;
+	fileOutStream << "# EDF Deadlines Missed: " << edfNumDeadlineMiss << std::endl;
+	fileOutStream << "# EDF Tasks Preempted:  " << edfNumPreemptions << std::endl;
 	
 	//Print sum
 	fileInStream.close();
-	fileOutStream.close();
-	
 }
 
 void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
@@ -113,7 +120,7 @@ void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
       {
         if (rmaTasks[i]->isReady(mTime))
           std::cout << "Task " << rmaTasks[i]->getID() << " missed deadline" << std::endl;
-		  RmaNumDeadlineMiss++;
+		  rmaNumDeadlineMiss++;
       }
     }
 
@@ -164,7 +171,7 @@ void TaskScheduler::runScheduleEDF()
 			{
 				if (edfTasks[i]->isReady(mTime)){
 				std::cout << "Task " << edfTasks[i]->getID() << " missed deadline" << std::endl;
-				EdfnumDeadlineMiss++; //increment the number of deadlines missed
+				edfNumDeadlineMiss++; //increment the number of deadlines missed
 				}
 			}
 
@@ -182,20 +189,19 @@ void TaskScheduler::runScheduleEDF()
 		mTime++;
 	}
 	std::cout << "Nothing here" << std::endl;
-	std::cout << 
 }
 
 int TaskScheduler::getEdfMissed(){
-	return EdfNumDeadlineMiss;
+	return edfNumDeadlineMiss;
 }
 int TaskScheduler::getEdfPreem(){
-	return EdfNumPreemptions;
+	return edfNumPreemptions;
 }
 int TaskScheduler::getRmaMissed(){
-	return RmaNumDeadlineMiss;
+	return rmaNumDeadlineMiss;
 }
 int TaskScheduler::getRmaPreem(){
-	return RmaNumPreemptions;
+	return rmaNumPreemptions;
 }
 
 	

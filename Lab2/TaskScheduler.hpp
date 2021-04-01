@@ -20,9 +20,10 @@ class TaskScheduler
     int mTime = 0;
     std::vector<std::shared_ptr<Task>> mLoadedTasks;
     std::ofstream mScheduleOutput;
-	int EdfNumDeadlineMiss = 0;
-	int EdfNumPreemptions = 0;
-	int RmaNumDeadlineMiss = 0;
-	int RmaNumPreemptions = 0;
+	int edfNumDeadlineMiss = 0;
+	int edfNumPreemptions = 0;
+	int rmaNumDeadlineMiss = 0;
+	int rmaNumPreemptions = 0;
+
 	
 };
