@@ -175,7 +175,6 @@ void TaskScheduler::runScheduleEDF()
 		}
 		mTime++;
 	}
-	std::cout << "Nothing here" << std::endl;
 }
 
 int TaskScheduler::getEdfMissed(){
