@@ -65,6 +65,8 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	std::cout << "# RMA Tasks Preempted:  " << RmaNumPreemptions << std::endl;
 	std::cout << "# EDF Deadlines Missed: " << EdfNumDeadlineMiss << std::endl;
 	std::cout << "# EDF Tasks Preempted:  " << EdfNumPreemptions << std::endl;
+	
+	//Print sum
 	fileInStream.close();
 	fileOutStream.close();
 	
