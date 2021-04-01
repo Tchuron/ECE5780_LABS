@@ -16,4 +16,5 @@ class TaskScheduler
     int mTime = 0;
     std::vector<std::shared_ptr<Task>> mLoadedTasks;
     std::ofstream mScheduleOutput;
+	
 };

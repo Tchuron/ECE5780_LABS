@@ -125,14 +125,22 @@ void TaskScheduler::runScheduleEDF()
 	{
 		// Check which task is ready and has the closest deadline.
 		std::shared_ptr<Task> bestTask;
-		int bestPeriodicTaskPriority = INT_MAX;
-		int bestAperiodicTaskPriority = INT_MAX;
-		
+		int TaskPriority = INT_MAX;	
 		for (int i = 0; i < edfTasks.size(); i++)
 		{
 			// Look for the highest priority ready task
-			// the task is aperiodic
-			// check for any late tasks
+			if(edfTasks[i]->isReady(mTime) && edfTasks[i]->getEdfPriority(mTime) < bestTaskPriority)
+			{
+				bestPeriodicTask = edfTasks[i];
+				bestPeriodicTaskPriority = edfTasks[i]->getEdfPriority(mTime);
+			}
+			       
+			if(edfTasks[i]->isReady(mTime) && rmaTasks[i]->getDeadline() < bestTaskPriority)
+			{
+				bestAperiodicTask = edfTasks[i];
+				bestAperiodicTaskPriority = rmaTasks[i]->getDeadline();
+			}
+			// Check for late tasks
 			// if we found a ready periodic task
 		}
 	}
