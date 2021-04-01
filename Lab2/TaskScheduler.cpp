@@ -32,10 +32,7 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 		{
 			fileInStream >> idName; 				// Parse the ID of each task from the input file
 			if (isdigit(idName[0])){ 				// Check to see if the id name is a number
-				numAperiodic = std::stoi(idName); 	// If it is parse into the number of aperiodic tasks
-				fileInStream >> idName; 			// Get the next value from the file for the id name
-				std::cout << "number of aperiodic tasks: " << numAperiodic << std::endl;
-				aperiodicSection = true;
+				break;
 			}
       else
       {
