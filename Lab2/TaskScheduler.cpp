@@ -35,11 +35,11 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 				numAperiodic = std::stoi(idName); 	// If it is parse into the number of aperiodic tasks
 				fileInStream >> idName; 			// Get the next value from the file for the id name
 				std::cout << "number of aperiodic tasks: " << numAperiodic << std::endl;
-        aperiodicSection = true;
+				aperiodicSection = true;
 			}
 			fileInStream >> execTime >> tempString >> period; 
 			std::cout << "Created new task. ID: " << idName << " ExecTime: " << execTime << " Period: " << period << std::endl;
-      mLoadedTasks.push_back(std::make_shared<Task>(idName[0], execTime, period, !aperiodicSection));
+			mLoadedTasks.push_back(std::make_shared<Task>(idName[0], execTime, period, !aperiodicSection));
 			//TaskEDF newTask = new TaskEDF(id, execTime, period);
 			//mTasks.push(newTask);
 		}
@@ -47,11 +47,10 @@ TaskScheduler::TaskScheduler(std::string inFile, std::string outFile)
 	else{ // Print an error message if the input file did not open correctly
 		std::cout << "input file did not open" << std::endl;
 	}
-	
 	fileInStream.close();
 }
 
-void TaskScheduler::runScheduleRMA()
+void TaskScheduler::runScheduleRMA() //RMA Task Scheduler
 {
   std::vector<std::shared_ptr<Task>> rmaTasks = {};
   // copy the tasks into the two queues
@@ -110,7 +109,9 @@ void TaskScheduler::runScheduleRMA()
     mTime++;
   }
 }
-
+//////////////////////////////////
+//EDF Task Scheduler
+//////////////////////////////////
 void TaskScheduler::runScheduleEDF()
 {
 	std::vector<std::shared_ptr<Task>> edfTasks = {};
@@ -125,24 +126,34 @@ void TaskScheduler::runScheduleEDF()
 	{
 		// Check which task is ready and has the closest deadline.
 		std::shared_ptr<Task> bestTask;
-		int TaskPriority = INT_MAX;	
+		int bestTaskPriority = INT_MAX;	
 		for (int i = 0; i < edfTasks.size(); i++)
 		{
 			// Look for the highest priority ready task
 			if(edfTasks[i]->isReady(mTime) && edfTasks[i]->getEdfPriority(mTime) < bestTaskPriority)
 			{
-				bestPeriodicTask = edfTasks[i];
-				bestPeriodicTaskPriority = edfTasks[i]->getEdfPriority(mTime);
+				bestTask = edfTasks[i];
+				bestTaskPriority = edfTasks[i]->getEdfPriority(mTime);
+				//bestTaskPriority = edfTasks[i]->getDeadline();
 			}
-			       
-			if(edfTasks[i]->isReady(mTime) && rmaTasks[i]->getDeadline() < bestTaskPriority)
+			if (edfTasks[i]->getDeadline() == mTime)// Check for late tasks
 			{
-				bestAperiodicTask = edfTasks[i];
-				bestAperiodicTaskPriority = rmaTasks[i]->getDeadline();
+				if (edfTasks[i]->isReady(mTime))
+				std::cout << "Task " << edfTasks[i]->getID() << " missed deadline" << std::endl;
 			}
-			// Check for late tasks
-			// if we found a ready periodic task
+
+
 		}
+		// if we found a readytask
+		if (bestTask) // if we found a ready periodic task
+		{
+			bestTask->execute(mTime);
+		}
+		else
+		{
+			std::cout << "[" << mTime << "ms] : NONE" << std::endl;
+		}
+		mTime++;
 	}
 	std::cout << "Nothing here" << std::endl;
 }

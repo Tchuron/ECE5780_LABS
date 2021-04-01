@@ -14,6 +14,7 @@ class Task
     int getExecAlready();
     int getDeadline();// for EDF scheduling
     int getRmaPriority(int currentTime); // for RMA scheduling
+	int getEdfPriority(int currentTime); // for EDF scheduling
     char getID();
     bool isReady(int currentTime);
     bool isFinished();

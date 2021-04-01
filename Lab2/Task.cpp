@@ -72,6 +72,17 @@ int Task::getRmaPriority(int currentTime)
   return mDeadline - mReleaseTime; // the period
 }
 
+// intended for periodic tasks. aperiodic tasks would be in a different
+// prioritized structure
+int Task::getEdfPriority(int currentTime)
+{
+  if (!isReady(currentTime))
+  {
+    return INT_MAX;
+  }
+  return mDeadline; //return deadline
+}
+
 char Task::getID()
 {
   return mID;
