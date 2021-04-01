@@ -108,15 +108,20 @@ bool Task::isFinished()
   return mExecAlready >= mExecTime;
 }
 
-void Task::execute(int currentTime)
+// returns whether a pre-emption occured
+bool Task::execute(int currentTime, std::ofstream* fileOut)
 {
+  bool returnVal = false;
   std::cout << "[" << currentTime << "ms] : " << mID << std::endl;
+  *fileOut << "[" << currentTime << "ms] : " << mID << std::endl;
   mExecAlready++;
   if (mPreviouslyExecuted != nullptr &&
       mPreviouslyExecuted->getID() != mID &&
       !mPreviouslyExecuted->isFinished())
   {
     std::cout << "Task " << mID << " pre-empted " << mPreviouslyExecuted->getID() << std::endl;
+    *fileOut << "Task " << mID << " pre-empted " << mPreviouslyExecuted->getID() << std::endl;
+    returnVal = true;
   }
   if (mExecAlready >= mExecTime) // check if finishing
   {
@@ -126,4 +131,5 @@ void Task::execute(int currentTime)
     }
   }
   mPreviouslyExecuted = this; // update the static previous task holder
+  return returnVal;
 }

@@ -1,6 +1,7 @@
 #include <memory>
 #include <climits>
 #include <iostream>
+#include <fstream>
 class Task
 {
   public:
@@ -18,7 +19,7 @@ class Task
     char getID();
     bool isReady(int currentTime);
     bool isFinished();
-    void execute(int currentTime);
+    bool execute(int currentTime, std::ofstream* fileOut);
   private:
     void periodicPushForward();
     char mID;
